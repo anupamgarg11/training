@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anupam · Half Marathon 2026</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🏃%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ground:#F6F7F5; --surface:#FFFFFF; --surface-2:#EFF1EE;
+    --ink:#15181A; --ink-2:#4A5350; --ink-3:#7C8683;
+    --rule:#DCE1DE; --rule-2:#C7CFCB;
+    --easy:#2E7D6E; --easy-bg:#E4F0ED;
+    --hard:#C2542B; --hard-bg:#F8E8E1;
+    --iron:#3F5487; --iron-bg:#E5EAF3;
+    --fd:ui-sans-serif,-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+    --fb:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --fm:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --ground:#0F1214; --surface:#161A1C; --surface-2:#1D2224;
+    --ink:#E9EDEA; --ink-2:#A3ADAA; --ink-3:#78827F;
+    --rule:#262C2E; --rule-2:#333A3C;
+    --easy:#4FB49F; --easy-bg:#132A26; --hard:#E8794A; --hard-bg:#2E1913;
+    --iron:#7C97D4; --iron-bg:#161D2C;}}
+  :root[data-theme="dark"]{
+    --ground:#0F1214; --surface:#161A1C; --surface-2:#1D2224;
+    --ink:#E9EDEA; --ink-2:#A3ADAA; --ink-3:#78827F;
+    --rule:#262C2E; --rule-2:#333A3C;
+    --easy:#4FB49F; --easy-bg:#132A26; --hard:#E8794A; --hard-bg:#2E1913;
+    --iron:#7C97D4; --iron-bg:#161D2C;}
+  *{box-sizing:border-box;}
+  body{background:var(--ground);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;margin:0;padding:0 22px 90px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;}
+  h1{font-family:var(--fd);font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:700;margin:0;}
+  h2{font-family:var(--fd);font-size:1.15rem;letter-spacing:-.015em;font-weight:700;margin:0 0 4px;}
+  p{margin:0;}
+  .label{font-family:var(--fm);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
+  header{padding:64px 0 0;}
+  .rule-heavy{height:3px;background:var(--ink);margin:22px 0 0;}
+  .sub{font-size:1.1rem;color:var(--ink-2);max-width:56ch;margin-top:18px;}
+  .count{display:flex;flex-wrap:wrap;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:30px;}
+  .count div{background:var(--surface);padding:16px 20px;flex:1 1 150px;}
+  .count .n{font-family:var(--fm);font-size:1.8rem;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;color:var(--hard);}
+  .count .k{font-family:var(--fm);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:8px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:34px;}
+  a.card{display:block;background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--easy);padding:22px;text-decoration:none;color:inherit;transition:.15s;}
+  a.card:hover{border-color:var(--rule-2);border-left-color:var(--easy);transform:translateY(-2px);}
+  a.card:focus-visible{outline:2px solid var(--easy);outline-offset:2px;}
+  a.card.b{border-left-color:var(--hard);} a.card.c{border-left-color:var(--iron);}
+  a.card .e{font-size:1.5rem;line-height:1;}
+  a.card h2{margin-top:12px;}
+  a.card p{font-size:.9rem;color:var(--ink-2);margin-top:6px;}
+  a.card .when{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:12px;display:block;}
+  .seq{background:var(--surface);border:1px solid var(--rule);padding:22px;margin-top:30px;}
+  .seq ol{margin:12px 0 0;padding-left:0;list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;}
+  .seq li{counter-increment:s;font-size:.92rem;color:var(--ink-2);padding:9px 12px;background:var(--surface-2);border-radius:2px;}
+  .seq li::before{content:"S" counter(s);font-family:var(--fm);font-size:.66rem;font-weight:600;color:var(--ink-3);margin-right:9px;}
+  .seq li.rest::before{content:"—";}
+  .note{font-size:.88rem;color:var(--ink-3);margin-top:14px;max-width:62ch;}
+  footer{margin-top:54px;padding-top:18px;border-top:3px solid var(--ink);font-family:var(--fm);font-size:.7rem;letter-spacing:.05em;color:var(--ink-3);}
+  @media (max-width:640px){body{padding:0 16px 60px;font-size:16px;}header{padding-top:42px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="label">Half Marathon · Sunday 13 December 2026</div>
+  <div class="rule-heavy"></div>
+  <h1 style="margin-top:24px;">Sub-30 to 21.1</h1>
+  <p class="sub">Seventeen weeks from a sub-30 5k to a half marathon, without giving up the physique. Everything lives here.</p>
+</header>
+
+<div class="count">
+  <div><div class="n" id="days">—</div><div class="k">Days to race</div></div>
+  <div><div class="n" id="wk">—</div><div class="k">Current week</div></div>
+  <div><div class="n">42</div><div class="k">Peak km/week</div></div>
+  <div><div class="n">2:10</div><div class="k">Target time</div></div>
+</div>
+
+<div class="cards">
+  <a class="card b" href="calendar.html">
+    <span class="e">📅</span>
+    <h2>119 Days</h2>
+    <p>Every session, every weight, every meal — day by day. Tick them off as you go.</p>
+    <span class="when">Open this daily</span>
+  </a>
+  <a class="card" href="kitchen.html">
+    <span class="e">🍳</span>
+    <h2>The Standing Order</h2>
+    <p>Cook brief, your twelve recipes with exact portions, weekly shopping list.</p>
+    <span class="when">Weekly · and once to your cook</span>
+  </a>
+  <a class="card c" href="plan.html">
+    <span class="e">🏃</span>
+    <h2>The Plan</h2>
+    <p>Why any of this is the way it is — the data, the diagnosis, the physique arc.</p>
+    <span class="when">When you want the reasoning</span>
+  </a>
+</div>
+
+<div class="seq">
+  <h2>The sequence, not the weekday</h2>
+  <p class="note" style="margin-top:6px;">Always in order. The rest day floats to wherever your week allows.</p>
+  <ol>
+    <li>Run — tempo or intervals</li>
+    <li>Legs + Core</li>
+    <li>Easy run</li>
+    <li>Shoulders + Arms</li>
+    <li>Long run</li>
+    <li>Chest + Back</li>
+    <li class="rest">Rest — floats</li>
+  </ol>
+  <p class="note"><strong>Only two runs this week?</strong> Drop S3, the easy run. Only one? It's S5, the long run, always. Never let the long run stall.</p>
+</div>
+
+<div class="seq">
+  <h2>Tracking</h2>
+  <p class="note" style="margin-top:6px;">
+    <a href="training_plan.xlsx" style="color:var(--easy);">Download the workbook</a> — eight tabs: daily log, the sequence with every weight, 17-week plan, meals, shopping, checkpoints.
+    In Google Sheets use <strong>File → Import → Upload</strong> to get it as a live sheet you can fill in from your phone.
+  </p>
+  <p class="note"><strong>Weight rule:</strong> fasted, after the bathroom, before water, no clothes. Daily swings are water — only the 7-day average counts.</p>
+</div>
+
+<footer>
+  Built from 354 Hevy sessions, 40 Strava runs and 1.3M Apple Health records · 1,900 kcal rising to 2,200 · ~154 g protein · Race: 13 Dec 2026
+</footer>
+</div>
+<script>
+(function(){
+  var race=new Date(2026,11,13), start=new Date(2026,7,17), now=new Date();
+  var d=Math.max(0,Math.ceil((race-now)/864e5));
+  var w=Math.floor((now-start)/(7*864e5))+1; if(w<1)w=1; if(w>17)w=17;
+  document.getElementById('days').textContent=d;
+  document.getElementById('wk').textContent=w+'/17';
+})();
+</script>
+</body>
+</html>

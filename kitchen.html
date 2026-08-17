@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Standing Order · Anupam</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🏃%3C/text%3E%3C/svg%3E">
+
+<style>
+ .sitenav{position:sticky;top:0;z-index:50;display:flex;gap:2px;padding:8px 16px;
+   background:var(--ground,#F6F7F5);border-bottom:1px solid var(--rule-2,#C7CFCB);
+   font-family:ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;flex-wrap:wrap;}
+ .sitenav a{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+   color:var(--ink-3,#7C8683);text-decoration:none;padding:6px 12px;border-radius:2px;}
+ .sitenav a:hover{color:var(--ink,#15181A);background:var(--surface-2,#EFF1EE);}
+ .sitenav a:focus-visible{outline:2px solid var(--easy,#2E7D6E);outline-offset:1px;}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <a href="index.html">Home</a><a href="calendar.html">119 Days</a><a href="kitchen.html">Kitchen</a><a href="plan.html">The Plan</a>
+</nav>
+
+<style>
+  :root{
+    --ground:#F7F6F3; --surface:#FFFFFF; --surface-2:#F0EEE9;
+    --ink:#1A1714; --ink-2:#524B42; --ink-3:#847B6E;
+    --rule:#E0DCD3; --rule-2:#CBC5B8;
+    --veg:#4A7A3F; --veg-bg:#E7F0E3;
+    --pro:#A8492C; --pro-bg:#F8E7E0;
+    --carb:#9A7318; --carb-bg:#F6EEDA;
+    --font-display:ui-sans-serif,-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+    --font-body:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --font-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#131211; --surface:#1B1917; --surface-2:#232120;
+      --ink:#EDEAE4; --ink-2:#ABA298; --ink-3:#7E766B;
+      --rule:#2A2725; --rule-2:#39352F;
+      --veg:#7FB86F; --veg-bg:#182415;
+      --pro:#E08160; --pro-bg:#2B1611;
+      --carb:#D6A945; --carb-bg:#292010;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#131211; --surface:#1B1917; --surface-2:#232120;
+    --ink:#EDEAE4; --ink-2:#ABA298; --ink-3:#7E766B;
+    --rule:#2A2725; --rule-2:#39352F;
+    --veg:#7FB86F; --veg-bg:#182415;
+    --pro:#E08160; --pro-bg:#2B1611;
+    --carb:#D6A945; --carb-bg:#292010;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;margin:0;padding:0 24px 110px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;}
+  h1,h2,h3,h4,.label,.pill,table{font-family:var(--font-display);}
+  h1{font-size:clamp(2.2rem,5.5vw,3.4rem);line-height:1.03;letter-spacing:-.032em;font-weight:700;margin:0;text-wrap:balance;}
+  h2{font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.14;letter-spacing:-.022em;font-weight:700;margin:0 0 6px;text-wrap:balance;}
+  h3{font-size:1.05rem;letter-spacing:-.01em;font-weight:700;margin:0 0 4px;}
+  h4{font-size:.92rem;font-weight:700;margin:0;}
+  p{margin:0;}
+  strong{font-weight:600;color:var(--ink);}
+  .label{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
+  header{padding:70px 0 0;}
+  .rule-heavy{height:3px;background:var(--ink);margin:24px 0 0;}
+  .sub{font-size:1.12rem;color:var(--ink-2);max-width:58ch;margin-top:18px;}
+  section{padding-top:52px;}
+  .sec-head{border-top:1px solid var(--rule-2);padding-top:14px;margin-bottom:22px;}
+  .sec-head .deck{font-size:.96rem;color:var(--ink-2);margin-top:4px;max-width:62ch;}
+  .tw{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);background:var(--surface);}
+  table{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-numeric:tabular-nums;}
+  th{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:11px 13px;border-bottom:1px solid var(--rule-2);white-space:nowrap;background:var(--surface-2);}
+  td{padding:10px 13px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.k{font-family:var(--font-mono);color:var(--ink);font-weight:600;white-space:nowrap;}
+  td.n{color:var(--ink);font-weight:600;font-family:var(--font-display);}
+  tr.tot td{background:var(--surface-2);color:var(--ink);font-weight:600;}
+  .pill{display:inline-block;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:500;white-space:nowrap;}
+  .p-pro{background:var(--pro-bg);color:var(--pro);}
+  .p-veg{background:var(--veg-bg);color:var(--veg);}
+  .p-carb{background:var(--carb-bg);color:var(--carb);}
+  .call{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--pro);padding:19px 21px;margin-top:24px;}
+  .call.veg{border-left-color:var(--veg);}
+  .call h4{margin-bottom:8px;}
+  .call p{font-size:.94rem;color:var(--ink-2);max-width:63ch;}
+  .call p + p{margin-top:9px;}
+  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:24px;}
+  .duo > div{background:var(--surface);padding:19px 21px;}
+  .duo h4{margin-bottom:9px;}
+  .duo ul{margin:0;padding-left:17px;font-size:.92rem;color:var(--ink-2);}
+  .duo li{margin-bottom:6px;}
+  .duo li:last-child{margin-bottom:0;}
+  ol.brief{counter-reset:b;list-style:none;margin:22px 0 0;padding:0;}
+  ol.brief li{counter-increment:b;position:relative;padding:0 0 0 44px;margin-bottom:18px;max-width:64ch;font-size:.97rem;color:var(--ink-2);}
+  ol.brief li::before{content:counter(b);position:absolute;left:0;top:-1px;font-family:var(--font-mono);font-size:.78rem;font-weight:600;color:var(--ink-3);border:1px solid var(--rule-2);width:28px;height:28px;display:grid;place-items:center;border-radius:50%;}
+  ol.brief li strong{display:block;color:var(--ink);font-family:var(--font-display);font-size:1rem;margin-bottom:3px;}
+  footer{margin-top:60px;padding-top:18px;border-top:3px solid var(--ink);font-family:var(--font-mono);font-size:.71rem;letter-spacing:.05em;color:var(--ink-3);}
+  @media (max-width:640px){body{padding:0 16px 70px;font-size:16px;}header{padding-top:44px;}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="label">Kitchen System · 1,900 kcal · ~150 g protein</div>
+  <div class="rule-heavy"></div>
+  <h1 style="margin-top:24px;">The Standing Order</h1>
+  <p class="sub">Everything your kitchen needs to run without a daily decision. Section 1 is written to be handed straight to your cook — it's the only page they need.</p>
+</header>
+
+<!-- ===== COOK BRIEF ===== -->
+<section>
+  <div class="sec-head">
+    <h2>1 · The cook brief</h2>
+    <p class="deck">Standing instructions. Nothing here changes week to week, so it only has to be explained once.</p>
+  </div>
+
+  <ol class="brief">
+    <li><strong>Chicken: cook 260 g raw per meal, twice a day</strong>
+      Anupam's share works out to roughly 150 g per meal once it's split with his flatmate — that's the number that matters. Right now you're making 200 g and his share lands at 110 g, which is too little. Please weigh it <em>raw</em>; everything else can be by eye.</li>
+    <li><strong>Cooking method: air fryer, grill, or pan with 1 teaspoon of oil</strong>
+      No deep frying. No cream, no malai, no butter-based gravies. Marinate with spices, curd, lemon, ginger-garlic — all of that is free and encouraged.</li>
+    <li><strong>Vegetables: two portions a day, 200 g raw weight each</strong>
+      One with lunch, one with dinner. <strong>A mix is better than a single vegetable</strong> — 200 g total of any combination. Use only: broccoli, zucchini, capsicum, carrot, onion, tomato. Sautéed, steamed or air-fried, not boiled to death. This is currently the biggest gap in the diet.</li>
+    <li><strong>Carbohydrate: one portion per meal, weighed dry</strong>
+      Basmati rice <strong>75 g dry</strong> · pasta <strong>80 g dry</strong> · <strong>3 rotis</strong> (90 g Aashirvaad atta) · <strong>4 slices</strong> high-protein bread. One of these per meal, not two. Section 2 lists the exact portion for each dish. On Fridays and Saturdays add 25% — those fuel the long run.</li>
+    <li><strong>Eggs: 3 boiled or an omelette, ready each morning</strong>
+      Breakfast is currently being skipped and that has to stop. Keeping them ready removes the excuse.</li>
+    <li><strong>Skyr / curd: 50 g daily</strong>
+      Plain, unsweetened. Small portion — it's for gut cultures, not protein.</li>
+    <li><strong>Fruit: two pieces a day</strong>
+      Banana always available — it's the pre-run carb. Second piece can be anything.</li>
+    <li><strong>Tofu twice a week, replacing the chicken</strong>
+      <strong>230 g of firm tofu</strong> replaces 150 g of chicken — tofu has roughly half the protein per gram, so the weight has to go up. Currently planned for Thursday lunch and Sunday dinner. No fish, no paneer.</li>
+  </ol>
+
+  <div class="call">
+    <h4>The one-line version, if the brief above is too much</h4>
+    <p><strong>260 g raw chicken per meal, 200 g mixed veg per meal, one weighed carb portion per meal, minimal oil, eggs ready in the morning.</strong> Get those five right and the numbers land within about 5% every single day, without anyone weighing anything else.</p>
+  </div>
+</section>
+
+<!-- ===== THE DAY ===== -->
+<section>
+  <div class="sec-head">
+    <h2>2 · The week, built from your own twelve meals</h2>
+    <p class="deck">Six days of home food, one meal out. Carbs are matched to that day's training — the near-zero-carb shirataki lands on your rest day, and Friday is deliberately loaded to fuel Saturday's long run.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Day</th><th>Training</th><th>Lunch</th><th>Dinner</th><th>Carbs</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Mon</td><td>Rest</td><td class="n">Chicken salad <span class="pill p-carb">+2 slices bread</span></td><td class="n">Shirataki + chicken <span class="pill p-carb">+40 g rice</span></td><td class="k">Low</td></tr>
+        <tr><td class="k">Tue</td><td>Tempo / intervals</td><td class="n">Rice chicken bowl</td><td class="n">Chicken kebab + 2 roti</td><td class="k">Med-high</td></tr>
+        <tr><td class="k">Wed</td><td>Legs</td><td class="n">Fried rice + chicken</td><td class="n">Chicken wrap + fruit</td><td class="k">High</td></tr>
+        <tr><td class="k">Thu</td><td>Easy run</td><td class="n">Chicken sandwich <span class="pill p-pro">tofu 230 g</span></td><td class="n">Pasta + chicken</td><td class="k">Med</td></tr>
+        <tr><td class="k">Fri</td><td>Shoulders + Arms</td><td class="n">Rice chicken bowl</td><td class="n">Chicken pizza on roti</td><td class="k">High</td></tr>
+        <tr><td class="k">Sat</td><td><strong>Long run</strong></td><td class="n">Chicken tacos × 3 <span class="pill p-carb">+rice side</span></td><td class="n"><strong>EAT OUT</strong> — post-long-run</td><td class="k">High</td></tr>
+        <tr><td class="k">Sun</td><td>Chest + Back</td><td class="n">Chicken burger + fruit</td><td class="n">Rice paper rolls × 4 <span class="pill p-pro">tofu 230 g</span> <span class="pill p-carb">+40 g rice</span></td><td class="k">Med</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <h4>Your carb portions, by meal — weighed dry</h4>
+    <p>Recalculated from ingredients using <em>your</em> method: no mayo, no butter, skyr-and-sriracha sauces, air fryer with avocado spray, 150 g chicken. Every meal below lands at 590–690 kcal, which is what a main meal needs to be for you.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Meal</th><th>Carb portion</th><th>kcal</th><th>Protein</th></tr></thead>
+      <tbody>
+        <tr><td class="n">Rice chicken bowl</td><td class="k">75 g dry basmati</td><td class="k">632</td><td class="k">47 g</td></tr>
+        <tr><td class="n">Fried rice + chicken</td><td class="k">75 g dry basmati</td><td class="k">632</td><td class="k">50 g</td></tr>
+        <tr><td class="n">Shirataki + chicken</td><td class="k">70 g dry basmati <em>on the side</em></td><td class="k">608</td><td class="k">53 g</td></tr>
+        <tr><td class="n">Pasta + chicken</td><td class="k">80 g dry pasta</td><td class="k">628</td><td class="k">57 g</td></tr>
+        <tr><td class="n">Chicken kebab</td><td class="k">3 roti (90 g Aashirvaad atta)</td><td class="k">679</td><td class="k">59 g</td></tr>
+        <tr><td class="n">Chicken pizza on roti</td><td class="k">3 roti base (90 g atta)</td><td class="k">674</td><td class="k">62 g</td></tr>
+        <tr><td class="n">Chicken sandwich</td><td class="k">4 slices high-protein bread</td><td class="k">693</td><td class="k">76 g</td></tr>
+        <tr><td class="n">Chicken salad</td><td class="k">4 slices high-protein bread</td><td class="k">588</td><td class="k">76 g</td></tr>
+        <tr><td class="n">Chicken wrap</td><td class="k">2 wheat tortillas</td><td class="k">673</td><td class="k">58 g</td></tr>
+        <tr><td class="n">Chicken tacos</td><td class="k">6 corn tortillas</td><td class="k">608</td><td class="k">55 g</td></tr>
+        <tr><td class="n">Chicken burger</td><td class="k">2 Health Factory protein buns</td><td class="k">598</td><td class="k">70 g</td></tr>
+        <tr><td class="n">Rice paper rolls (tofu)</td><td class="k">5 sheets</td><td class="k">637</td><td class="k">50 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <h4>Why the portions went up rather than down</h4>
+    <p>Cutting the mayo and butter out of the maths — which you never used — made your meals <strong>leaner</strong>, not richer. At your old portions they averaged <strong>509 kcal</strong> against the 625 a main meal needs. Your cooking method is cleaner than the recipes it came from, and the carb portions never got adjusted to compensate.</p>
+    <p>You're right that ±100 kcal on any single meal is noise. The problem was that it ran the <em>same direction every time</em>: 116 kcal short, twice a day, every day. That's 230 a day, and it's most of the gap between the 1,900 you intend and the ~1,650 you were probably eating.</p>
+    <p><strong>One consequence: you no longer need the daily protein scoop to hit target.</strong> These portions deliver ~150 g of protein from food alone. Keep the yeast protein for days you skip eggs or miss a meal — otherwise it just crowds out carbs you need for running.</p>
+  </div>
+
+  <div class="call veg">
+    <h4>Two notes on your method</h4>
+    <p><strong>Your skyr-and-sriracha sauce is genuinely excellent.</strong> About 48 kcal for 9 g of protein per serving, against ~135 kcal and zero protein for the mayo the original recipes use. Nothing to change — just keep using it everywhere.</p>
+    <p><strong>The one recipe to modify:</strong> the fried rice reel uses chicken thighs, butter and oyster sauce. Use breast, avocado spray and your usual sauce and it comes in at 632 instead of the reel's 592-with-thighs — same calories, far more protein, much less fat.</p>
+  </div>
+</section>
+
+<!-- ===== BREAKFAST ===== -->
+<section>
+  <div class="sec-head">
+    <h2>3 · Breakfast and snacks</h2>
+    <p class="deck">The part that isn't in your recipe list, and the part you've been skipping.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Day</th><th>Breakfast</th><th>kcal</th><th>Protein</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Mon · Thu</td><td class="n">3 eggs + 1 slice brown bread + banana</td><td class="k">395</td><td class="k">22 g</td></tr>
+        <tr><td class="k">Tue · Fri</td><td class="n">3-egg omelette (onion, tomato, capsicum) + 1 slice toast</td><td class="k">380</td><td class="k">24 g</td></tr>
+        <tr><td class="k">Wed</td><td class="n">3 eggs + 40 g oats + banana</td><td class="k">440</td><td class="k">24 g</td></tr>
+        <tr><td class="k">Sat</td><td class="n">40 g oats + 50 g skyr + banana <span class="pill p-carb">pre-long-run</span></td><td class="k">390</td><td class="k">18 g</td></tr>
+        <tr><td class="k">Sun</td><td class="n">3 eggs + 1 slice brown bread + fruit</td><td class="k">395</td><td class="k">22 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:13px;font-size:.9rem;color:var(--ink-3);max-width:63ch;">If you skip eggs on any day, replace with an extra scoop of yeast protein — that's the swap you suggested and it works.</p>
+
+  <div class="duo">
+    <div>
+      <h4>Daily, on top of the three meals</h4>
+      <ul>
+        <li><strong>50 g skyr</strong> — 40 kcal, 6 g</li>
+        <li><strong>Yeast protein — only if you skipped eggs or a meal.</strong> The food alone now covers your target.</li>
+        <li><strong>Small handful almonds</strong> — 85 kcal, 3 g</li>
+        <li><strong>2 pieces of fruit</strong> — one is a banana before a run</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Where the 145 g of protein comes from</h4>
+      <ul>
+        <li>Chicken / tofu, 2 meals — <strong>69 g</strong></li>
+        <li>3 eggs at breakfast — <strong>19 g</strong></li>
+        <li>High-protein bread, roti, rice, pasta — <strong>~30 g</strong></li>
+        <li>Skyr sauces across both meals — <strong>~18 g</strong></li>
+        <li>Veg, nuts, fruit, skyr snack — <strong>~14 g</strong></li>
+        <li><strong>Total ≈ 150 g</strong> at 71 kg = 2.1 g/kg — no shake needed</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOPPING ===== -->
+<section>
+  <div class="sec-head">
+    <h2>4 · The weekly shop</h2>
+    <p class="deck">One order, once a week. Quantities are for seven days at the numbers above.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Category</th><th>Item</th><th>Weekly qty</th></tr></thead>
+      <tbody>
+        <tr><td class="k"><span class="pill p-pro">Protein</span></td><td class="n">Chicken breast / boneless</td><td class="k">2.6 kg</td></tr>
+        <tr><td class="k"></td><td class="n">Firm tofu</td><td class="k">500 g</td></tr>
+        <tr><td class="k"></td><td class="n">Eggs</td><td class="k">21–24</td></tr>
+        <tr><td class="k"></td><td class="n">Milky Mist skyr</td><td class="k">400 g</td></tr>
+        
+        <tr><td class="k"></td><td class="n">Yeast protein</td><td class="k">7 scoops</td></tr>
+        <tr><td class="k"><span class="pill p-veg">Veg</span></td><td class="n">Broccoli</td><td class="k">500 g</td></tr>
+        
+        <tr><td class="k"></td><td class="n">Zucchini</td><td class="k">400 g</td></tr>
+        
+        <tr><td class="k"></td><td class="n">Capsicum, onion, tomato, carrot</td><td class="k">2.2 kg total</td></tr>
+        <tr><td class="k"></td><td class="n">Cucumber, salad leaves</td><td class="k">700 g</td></tr>
+        <tr><td class="k"><span class="pill p-carb">Carbs</span></td><td class="n">Rice</td><td class="k">1 kg dry</td></tr>
+        <tr><td class="k"></td><td class="n">Atta (for roti)</td><td class="k">1 kg</td></tr>
+        <tr><td class="k"></td><td class="n">Brown bread</td><td class="k">1 loaf</td></tr>
+        <tr><td class="k"></td><td class="n">Oats</td><td class="k">250 g</td></tr>
+        <tr><td class="k"></td><td class="n">Bananas</td><td class="k">7</td></tr>
+        <tr><td class="k"></td><td class="n">Apples / oranges</td><td class="k">7</td></tr>
+        <tr><td class="k"></td><td class="n">Shirataki noodles</td><td class="k">2 packets</td></tr>
+        <tr><td class="k"></td><td class="n">Rice paper sheets, tortillas, corn tortillas, buns</td><td class="k">as per week</td></tr>
+        <tr><td class="k">Other</td><td class="n">Almonds</td><td class="k">120 g</td></tr>
+        <tr><td class="k"></td><td class="n">Light mayo, sriracha, soy sauce</td><td class="k">as needed</td></tr>
+        <tr><td class="k"></td><td class="n">Ghee, cooking oil</td><td class="k">as needed</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== EATING OUT & WATER ===== -->
+<section>
+  <div class="sec-head">
+    <h2>5 · Eating out, and the rest</h2>
+    <p class="deck">The plan has to survive a restaurant, because otherwise it survives about eleven days.</p>
+  </div>
+
+  <div class="duo">
+    <div>
+      <h4>When you go out</h4>
+      <ul>
+        <li><strong>Order protein first, then decide the rest.</strong> Grilled chicken, fish, tandoori, kebabs — anything not swimming in gravy.</li>
+        <li><strong>One carb, not three.</strong> Rice or naan or fries. Pick the one you actually want.</li>
+        <li><strong>Skip the starter, keep the dessert</strong> if you want dessert. Starters are usually fried and rarely memorable.</li>
+        <li><strong>Don't compensate afterwards.</strong> One 2,600 kcal day inside a 1,900 plan costs you about two days of progress. Skipping meals the next day to "make up" costs you a week, because that's what starts the restrict-rebound cycle.</li>
+        <li><strong>Just log it and move on.</strong> Photo, note it, next meal is normal.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Water, and the two habits</h4>
+      <ul>
+        <li><strong>3–3.5 L a day.</strong> You're at 2. Keep a 1 L bottle on your desk and finish it three times — far easier than counting glasses.</li>
+        <li><strong>500 ml on waking</strong>, before coffee. Gets you a sixth of the way before the day starts.</li>
+        <li><strong>Fibre to 30 g</strong> comes almost entirely from the two large vegetable portions. This is the change most likely to visibly flatten your stomach inside two weeks.</li>
+        <li><strong>Creatine 5 g daily</strong> — any time, with or without food. Consistency matters, timing doesn't.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="call veg">
+    <h4>What "tracking" actually means here</h4>
+    <p>Do not weigh your food or log every meal in an app. You'll last two weeks. The whole system above is designed so that <strong>eating the default day correctly means you never have to count anything.</strong></p>
+    <p>Two measurements only: <strong>the raw chicken</strong> (your cook does this), and <strong>your bodyweight</strong>, fasted, 3–4 mornings a week. The seven-day rolling average of that weight is the only feedback signal that matters — if it's falling 0.3–0.5 kg a week, everything above is working, whatever the app would have said.</p>
+  </div>
+</section>
+
+<footer>
+  Built for 71 kg → 64.5 kg across 17 weeks · 1,900 kcal rising to 2,200 as running volume climbs · ~150 g protein from food alone · Built from your own twelve recipes
+</footer>
+
+</div>
+
+</body>
+</html>

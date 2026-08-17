@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sub-30 to 21.1 · Anupam</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🏃%3C/text%3E%3C/svg%3E">
+
+<style>
+ .sitenav{position:sticky;top:0;z-index:50;display:flex;gap:2px;padding:8px 16px;
+   background:var(--ground,#F6F7F5);border-bottom:1px solid var(--rule-2,#C7CFCB);
+   font-family:ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;flex-wrap:wrap;}
+ .sitenav a{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+   color:var(--ink-3,#7C8683);text-decoration:none;padding:6px 12px;border-radius:2px;}
+ .sitenav a:hover{color:var(--ink,#15181A);background:var(--surface-2,#EFF1EE);}
+ .sitenav a:focus-visible{outline:2px solid var(--easy,#2E7D6E);outline-offset:1px;}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <a href="index.html">Home</a><a href="calendar.html">119 Days</a><a href="kitchen.html">Kitchen</a><a href="plan.html">The Plan</a>
+</nav>
+
+<style>
+  :root{
+    --ground:#F6F7F5; --surface:#FFFFFF; --surface-2:#EFF1EE;
+    --ink:#15181A; --ink-2:#4A5350; --ink-3:#7C8683;
+    --rule:#DCE1DE; --rule-2:#C7CFCB;
+    --easy:#2E7D6E; --easy-bg:#E4F0ED;
+    --hard:#C2542B; --hard-bg:#F8E8E1;
+    --iron:#3F5487; --iron-bg:#E5EAF3;
+    --warn:#9A6B18; --warn-bg:#F5EEDD;
+    --font-display:ui-sans-serif,-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+    --font-body:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --font-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1214; --surface:#161A1C; --surface-2:#1D2224;
+      --ink:#E9EDEA; --ink-2:#A3ADAA; --ink-3:#78827F;
+      --rule:#262C2E; --rule-2:#333A3C;
+      --easy:#4FB49F; --easy-bg:#132A26;
+      --hard:#E8794A; --hard-bg:#2E1913;
+      --iron:#7C97D4; --iron-bg:#161D2C;
+      --warn:#D6A047; --warn-bg:#2A2113;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1214; --surface:#161A1C; --surface-2:#1D2224;
+    --ink:#E9EDEA; --ink-2:#A3ADAA; --ink-3:#78827F;
+    --rule:#262C2E; --rule-2:#333A3C;
+    --easy:#4FB49F; --easy-bg:#132A26;
+    --hard:#E8794A; --hard-bg:#2E1913;
+    --iron:#7C97D4; --iron-bg:#161D2C;
+    --warn:#D6A047; --warn-bg:#2A2113;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;margin:0;padding:0 24px 120px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  h1,h2,h3,h4,.label,.pill,table,.stat,.daycard-h{font-family:var(--font-display);}
+  h1{font-size:clamp(2.4rem,6vw,3.9rem);line-height:1.02;letter-spacing:-.035em;font-weight:700;margin:0;text-wrap:balance;}
+  h2{font-size:clamp(1.5rem,3vw,2rem);line-height:1.12;letter-spacing:-.024em;font-weight:700;margin:0 0 6px;text-wrap:balance;}
+  h3{font-size:1.12rem;letter-spacing:-.012em;font-weight:700;margin:0 0 4px;text-wrap:balance;}
+  h4{font-size:.94rem;letter-spacing:-.005em;font-weight:700;margin:0;}
+  p{margin:0;}
+  strong{font-weight:600;color:var(--ink);}
+  .label{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);}
+  header{padding:76px 0 0;}
+  .rule-heavy{height:3px;background:var(--ink);margin:26px 0 0;}
+  .sub{font-size:1.16rem;color:var(--ink-2);max-width:60ch;margin-top:18px;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:22px;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;}
+  section{padding-top:56px;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;border-top:1px solid var(--rule-2);padding-top:14px;margin-bottom:26px;}
+  .sec-num{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-3);letter-spacing:.1em;padding-top:6px;}
+  .sec-head .deck{font-size:.97rem;color:var(--ink-2);margin-top:2px;max-width:62ch;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:34px;}
+  .stat{background:var(--surface);padding:18px 18px 16px;}
+  .stat .n{font-family:var(--font-mono);font-size:1.9rem;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;}
+  .stat .k{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:9px;}
+  .stat .d{font-size:.86rem;color:var(--ink-2);margin-top:7px;line-height:1.45;font-family:var(--font-body);}
+  .n.easy{color:var(--easy);} .n.hard{color:var(--hard);} .n.iron{color:var(--iron);} .n.warn{color:var(--warn);}
+  .finding{display:grid;grid-template-columns:38px 1fr;gap:20px;padding:24px 0;border-top:1px solid var(--rule);}
+  .finding:first-of-type{border-top:none;}
+  .fnum{font-family:var(--font-mono);font-size:1.5rem;font-weight:600;color:var(--rule-2);line-height:1;padding-top:3px;font-variant-numeric:tabular-nums;}
+  .finding .body{max-width:64ch;}
+  .finding .body p{margin-top:10px;font-size:.99rem;color:var(--ink-2);}
+  .verdict{display:inline-block;font-family:var(--font-mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:9px;font-weight:500;}
+  .v-crit{background:var(--hard-bg);color:var(--hard);}
+  .v-warn{background:var(--warn-bg);color:var(--warn);}
+  .v-good{background:var(--easy-bg);color:var(--easy);}
+  .v-info{background:var(--iron-bg);color:var(--iron);}
+  .tw{overflow-x:auto;margin-top:24px;border:1px solid var(--rule);background:var(--surface);}
+  table{border-collapse:collapse;width:100%;font-size:.83rem;font-variant-numeric:tabular-nums;}
+  th{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:11px 13px;border-bottom:1px solid var(--rule-2);white-space:nowrap;background:var(--surface-2);}
+  td{padding:9px 13px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.wk,td.num{font-family:var(--font-mono);color:var(--ink);font-weight:600;white-space:nowrap;}
+  td.ex{color:var(--ink);font-weight:600;font-family:var(--font-display);}
+  .phase-row td{background:var(--surface-2);font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);font-weight:600;padding:9px 13px;border-bottom:1px solid var(--rule-2);border-top:2px solid var(--rule-2);}
+  tr.down td{background:color-mix(in srgb,var(--surface-2) 55%,transparent);}
+  tr.race td{background:var(--hard-bg);}
+  tr.race td.wk,tr.race td.num{color:var(--hard);}
+  .pill{display:inline-block;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:500;white-space:nowrap;}
+  .p-easy{background:var(--easy-bg);color:var(--easy);}
+  .p-hard{background:var(--hard-bg);color:var(--hard);}
+  .p-iron{background:var(--iron-bg);color:var(--iron);}
+  .p-rest{background:var(--surface-2);color:var(--ink-3);}
+  .call{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--hard);padding:20px 22px;margin-top:26px;}
+  .call.easy{border-left-color:var(--easy);}
+  .call.iron{border-left-color:var(--iron);}
+  .call h4{margin-bottom:8px;}
+  .call p{font-size:.95rem;color:var(--ink-2);max-width:64ch;}
+  .call p + p{margin-top:10px;}
+  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:26px;}
+  .duo > div{background:var(--surface);padding:20px 22px;}
+  .duo h4{margin-bottom:10px;}
+  .duo ul{margin:0;padding-left:17px;font-size:.93rem;color:var(--ink-2);}
+  .duo li{margin-bottom:7px;}
+  .duo li:last-child{margin-bottom:0;}
+  ul.clean{margin:14px 0 0;padding-left:19px;font-size:.97rem;color:var(--ink-2);max-width:64ch;}
+  ul.clean li{margin-bottom:9px;}
+  /* session cards */
+  .daycard{border:1px solid var(--rule);background:var(--surface);margin-top:26px;}
+  .daycard-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;padding:15px 18px;border-bottom:1px solid var(--rule-2);background:var(--surface-2);}
+  .daycard-h .dn{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
+  .daycard-h .dm{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-left:auto;}
+  .daycard table{font-size:.82rem;}
+  .daycard .note{padding:13px 18px;font-size:.88rem;color:var(--ink-2);border-top:1px solid var(--rule);background:color-mix(in srgb,var(--surface-2) 45%,transparent);}
+  footer{margin-top:64px;padding-top:20px;border-top:3px solid var(--ink);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;color:var(--ink-3);}
+  @media (max-width:640px){
+    body{padding:0 17px 80px;font-size:16px;}
+    header{padding-top:46px;}
+    .finding{grid-template-columns:1fr;gap:6px;}
+    .fnum{font-size:1.05rem;}
+    .daycard-h .dm{margin-left:0;width:100%;}
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="label">Training Analysis &amp; Race Build · Anupam Garg</div>
+  <div class="rule-heavy"></div>
+  <h1 style="margin-top:26px;">Sub-30 to 21.1</h1>
+  <p class="sub">You just broke 30 minutes for 5k. You have 17 weeks to turn that into a half marathon. Three datasets agree on the diagnosis: you have one gear, you're missing half your body, and you're recovering from none of it.</p>
+  <div class="meta">
+    <span>354 Hevy sessions · Dec 2023 → Aug 2026</span>
+    <span>40 Strava runs · 191 km</span>
+    <span>1.3 M Apple Health records</span>
+    <span>Race: Sun 13 Dec 2026</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="n hard">15/15</div><div class="k">Runs 5 km+ run hard</div><div class="d">Every sustained run with HR data sits at 155–173 bpm. No aerobic long run exists.</div></div>
+  <div class="stat"><div class="n hard">5.9<span style="font-size:1.1rem;">h</span></div><div class="k">Mean sleep</div><div class="d">45% of nights under 6 h. Your biggest untapped lever, and it costs no training time.</div></div>
+  <div class="stat"><div class="n hard">285<span style="font-size:1.1rem;">ms</span></div><div class="k">Ground contact</div><div class="d">Trained runners sit at 200–240. You're bouncing, not driving forward.</div></div>
+  <div class="stat"><div class="n warn">0.9</div><div class="k">Ham/glute sets · wk</div><div class="d">Against 14.5 weekly arm sets. No hinge pattern in 354 sessions.</div></div>
+  <div class="stat"><div class="n warn">57%</div><div class="k">Sets at 16+ reps</div><div class="d">Only 7.5% under 8. You're doing cardio with dumbbells.</div></div>
+  <div class="stat"><div class="n iron">8</div><div class="k">Lifts flat 8 months</div><div class="d">Of 10 tracked. Hammer curl: 25 kg since January. Volume was never the problem.</div></div>
+</div>
+
+<!-- ============ DIAGNOSIS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div>
+      <h2>What the data actually says</h2>
+      <p class="deck">Six findings, ordered by cost. Two of them come from your Apple Watch and neither is what you'd expect.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="fnum">1</div>
+    <div class="body">
+      <span class="verdict v-crit">Critical · fix this first</span>
+      <h3>Every run long enough to matter is run too hard.</h3>
+      <p>Of your 28 runs with heart-rate data, 8 averaged under 155 bpm — so you do have an easy gear. But those were all 2.4–4.3 km, each with a 40-beat gap between average and max: run-walk sessions, not aerobic runs.</p>
+      <p>Filter to runs of <strong>5 km or longer</strong> and it's absolute: <strong>all 15 sit between 155 and 173 bpm.</strong> Your <em>"5k easy run"</em> averaged 161. Your <em>"7k easy run"</em>: 160. The 10k: 170. Your all-out PB: 173. Your easy long runs and your maximum effort are twelve beats apart.</p>
+      <p>With a true max of <strong>191</strong> (9 July) and threshold near 174, easy is <strong>140–155 bpm</strong>. Everything you do lives in the gray zone — too hard to recover from, too easy to drive adaptation. It explains the pace plateau, the permanent leg soreness, and why leg day keeps getting skipped.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="fnum">2</div>
+    <div class="body">
+      <span class="verdict v-crit">Critical · confirmed by your watch</span>
+      <h3>You sleep 5.9 hours, and 45% of nights are under six.</h3>
+      <p>You estimated six hours. Across 87 logged nights since April the mean is <strong>5.91 h</strong> — 45% under 6 h, 68% under 7 h, only 28 nights at 7 h or more. Your watch-wearing is patchy, so treat the exact figure loosely; but the nights it did capture skew low, and unrecorded nights are more likely to be late ones, not early ones.</p>
+      <p>At 5–6 h with six training days a week you suppress muscle protein synthesis, slow glycogen replenishment, raise perceived effort at any given pace, and materially increase soft-tissue injury risk — during the exact 4× mileage ramp we're about to run.</p>
+      <p>It is almost certainly connected to something else in your data: <strong>19 of 40 runs started after 8 pm, one at midnight.</strong> Hard running late keeps core temperature and adrenaline elevated when they need to fall. The late running costs you the sleep; the lost sleep costs you the training.</p>
+      <p>Credit where it's due — this is improving. You were at 4–5 h through late 2025 and you're at 5.8–6.4 h now. Getting to 7 h would do more for you over 17 weeks than any programming change on this page.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="fnum">3</div>
+    <div class="body">
+      <span class="verdict v-crit">Critical</span>
+      <h3>Legs aren't "sometimes skipped." They've been gone since June 5th.</h3>
+      <p>In 26 weeks you had <strong>14 sessions with meaningful leg work</strong>, and the last real one was <strong>5 June</strong>. Since then, two token appearances — one titled <em>"shoulder and incomplete legs."</em> Pull-ups, standing calf raises and back extensions haven't been logged since May either.</p>
+      <p>Weekly: <strong>0.9 sets</strong> hamstrings/glutes, <strong>2.2</strong> quads, against <strong>7.9 biceps</strong> and <strong>6.6 triceps</strong>. No hip hinge appears anywhere in 354 sessions. For a half marathon in December, your posterior chain is both your propulsion and your injury insurance, and it's the least trained thing you own.</p>
+      <p>It self-perpetuates: legs are sore because you run everything at threshold, so you skip legs, so legs stay weak, so running hurts more. Fixing run intensity is what unlocks leg day.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="fnum">4</div>
+    <div class="body">
+      <span class="verdict v-warn">New — from your running-form data</span>
+      <h3>Your running mechanics are costing you free speed.</h3>
+      <p>Apple Health has been recording your form, and two numbers stand out. <strong>Ground contact time: 285 ms.</strong> Trained runners sit at 200–240 ms; above 280 is the inefficient band. <strong>Vertical oscillation: 11.5 cm.</strong> Efficient runners are 6–9 cm. You're spending too long on the ground and too much energy going up instead of forward.</p>
+      <p>Both are classic signatures of overstriding with a low cadence, on top of an underpowered posterior chain that can't return elastic energy. Which is to say: they're the mechanical fingerprint of finding 3.</p>
+      <p>The fix is two things you're already about to do — heavy calf work and strides — plus one new one: <strong>deliberately raise your cadence toward 170–175 steps per minute.</strong> Shorter, quicker steps, landing under your hips rather than out in front. Run easy sessions to a 170 bpm playlist or metronome. This is the rare change that makes you faster and reduces impact at the same time.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="fnum">5</div>
+    <div class="body">
+      <span class="verdict v-warn">Redundancy — you asked what to cut</span>
+      <h3>Roughly a third of your gym volume is duplicated work.</h3>
+      <ul class="clean">
+        <li><strong>Chest — 138 fly sets against 57 press sets.</strong> Cable Fly (73) + Low Cable Fly (51) + Machine Fly (10) + Pec Deck (4). Flies are the weakest chest builder per set and you're flying 2.4× more than pressing.</li>
+        <li><strong>Triceps — 138 sets of one movement.</strong> Rope Pushdown (49) + Pushdown (45) + Cable Kickback (37) + Single-Arm Pushdown (7). All elbow-extension-at-the-side. Only 33 overhead sets — and the long head, the largest part of the triceps, only grows in the stretched overhead position.</li>
+        <li><strong>Biceps — 204 sets across six near-identical curls.</strong> Hammer, incline, BB preacher, DB preacher, reverse, behind-the-back.</li>
+        <li><strong>Core — 156 sets, all spinal flexion.</strong> Cable crunch at 75 kg × 20, knee raise, side bend. Zero anti-rotation, zero carries. <strong>Side Bend (42 sets) works against you</strong> — loaded lateral flexion thickens the waist you're trying to narrow.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="fnum">6</div>
+    <div class="body">
+      <span class="verdict v-warn">The real risk to December</span>
+      <h3>Travel doesn't slow you down — it takes you to zero.</h3>
+      <p>April–May you were flawless: six training days a week, three runs, 13–18 km, every week. Then June and July: weeks of <strong>0, 2, 2, 0 and 3</strong> training days. Four weeks lost, exactly when a base should have been building.</p>
+      <p>The cost is measurable. In May you ran <strong>6:45/km at 160 bpm</strong>. By August, at that same 160 bpm, you ran <strong>7:41/km</strong> — 55 seconds per kilometre slower at identical cardiac cost. Your resting heart rate tells the same story: 56.3 bpm in May, your best month, spiking to 62.4 in June.</p>
+      <p>Seventeen weeks contains at least one more trip. There's a fallback protocol at the bottom of this page. The rule is never zero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RIGHT ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div><h2>What you're getting right</h2>
+    <p class="deck">More than you think — and the plan keeps all of it.</p></div>
+  </div>
+  <div class="duo">
+    <div>
+      <h4>Habits that are already correct</h4>
+      <ul>
+        <li><strong>354 sessions over 2 years 8 months.</strong> Consistency is the hard part and it's done.</li>
+        <li><strong>12,000–15,000 steps a day.</strong> High NEAT is why your maintenance is as high as it is. Protect this.</li>
+        <li><strong>HRV at 62 ms, the highest since January.</strong> You are not overtrained. You're under-fuelled and under-slept — a different and more fixable problem.</li>
+        <li><strong>Creatine, omega-3, vitamin D, prebiotic</strong> — sensible stack, nothing wasted.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Training choices worth keeping</h4>
+      <ul>
+        <li><strong>Chest + back paired.</strong> Antagonists, superset-friendly, best 50-minute session design there is. Stays exactly as it is.</li>
+        <li><strong>Calf and tibialis raises.</strong> Almost no lifter does these; they're the best insurance against the calf and Achilles injuries that end half-marathon builds.</li>
+        <li><strong>400 m × 8 intervals.</strong> Your instinct was right — those reps at ~4:22/km are a proper VO₂max session. You stopped in June. They're back in week 8.</li>
+        <li><strong>Sub-30 5k with 19 PRs.</strong> Real, measurable, and the foundation the whole plan builds on.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZONES ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div><h2>Your zones and paces</h2>
+    <p class="deck">Strava is using an age-formula max of ~197. Your true recorded max is <strong>191</strong> and your threshold is near 174. Reset them to these.</p></div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Zone</th><th>Heart rate</th><th>Feels like</th><th>Pace now</th><th>Pace by Nov</th><th>Weekly share</th></tr></thead>
+      <tbody>
+        <tr><td class="ex">Recovery</td><td class="num">&lt; 140</td><td>Almost too slow</td><td class="num">8:45+</td><td class="num">8:00+</td><td class="num">as needed</td></tr>
+        <tr><td class="ex">Easy <span class="pill p-easy">Live here</span></td><td class="num">140–155</td><td>Full sentences</td><td class="num">7:45–8:30</td><td class="num">6:45–7:15</td><td class="num">~80%</td></tr>
+        <tr><td class="ex">Steady <span class="pill p-hard">Avoid</span></td><td class="num">156–165</td><td>The trap you live in</td><td class="num">7:15–7:45</td><td class="num">6:20–6:45</td><td class="num">~0%</td></tr>
+        <tr><td class="ex">Threshold</td><td class="num">166–176</td><td>Short phrases only</td><td class="num">6:10–6:35</td><td class="num">5:40–6:00</td><td class="num">~15%</td></tr>
+        <tr><td class="ex">VO₂max</td><td class="num">177+</td><td>Single words</td><td class="num">5:00–5:30</td><td class="num">4:40–5:00</td><td class="num">~5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call easy">
+    <h4>Read this before your first easy run, because you will hate it</h4>
+    <p>To hold 150 bpm you'll initially need to run around <strong>8:15/km</strong> — slower than your current "easy" pace. It will feel like wasting time. It is the highest-leverage change on this page.</p>
+    <p>Give it six weeks. The same heart rate will come at 7:15/km, then 6:45. That's capillary density, mitochondria, stroke volume and fat oxidation being built — the engine your 5k speed is currently sitting on top of without support. If your watch goes above 155, walk until it drops. No exceptions for the first five weeks.</p>
+  </div>
+</section>
+
+<!-- ============ 17 WEEKS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div><h2>The 17-week build</h2>
+    <p class="deck">10.5 km/week to a 43 km peak, with a 19 km long run three weeks out. Down weeks are not optional — they're when adaptation happens.</p></div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Wk</th><th>Dates</th><th>Km</th><th>Long run</th><th>Tuesday quality session</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr class="phase-row"><td colspan="6">Phase 1 · Base — rebuild the aerobic engine. Everything easy.</td></tr>
+        <tr><td class="wk">1</td><td>Aug 17–23</td><td class="num">16</td><td class="num">6 km</td><td>Easy + 6 × 20 s strides</td><td>Cadence focus: 170 spm</td></tr>
+        <tr><td class="wk">2</td><td>Aug 24–30</td><td class="num">19</td><td class="num">8 km</td><td>Easy + 6 × 20 s strides</td><td>Add 4th run (Mon easy 4 km)</td></tr>
+        <tr><td class="wk">3</td><td>Aug 31–Sep 6</td><td class="num">22</td><td class="num">10 km</td><td>Easy + 8 × 20 s strides</td><td>Equals your longest run ever</td></tr>
+        <tr class="down"><td class="wk">4</td><td>Sep 7–13</td><td class="num">16</td><td class="num">8 km</td><td>Easy only</td><td><span class="pill p-rest">Down week</span></td></tr>
+        <tr><td class="wk">5</td><td>Sep 14–20</td><td class="num">25</td><td class="num">12 km</td><td>5k time trial (Sat)</td><td><span class="pill p-hard">Checkpoint · target ≤ 27:45</span></td></tr>
+        <tr class="phase-row"><td colspan="6">Phase 2 · Build — add threshold. The long run becomes the priority session.</td></tr>
+        <tr><td class="wk">6</td><td>Sep 21–27</td><td class="num">28</td><td class="num">12 km</td><td>3 × 1 km @ 6:20, 90 s jog</td><td>First threshold work</td></tr>
+        <tr><td class="wk">7</td><td>Sep 28–Oct 4</td><td class="num">31</td><td class="num">14 km</td><td>4 × 1 km @ 6:15</td><td>Start fuelling long runs</td></tr>
+        <tr class="down"><td class="wk">8</td><td>Oct 5–11</td><td class="num">23</td><td class="num">9 km</td><td>400 m × 6 @ 4:30</td><td><span class="pill p-rest">Down week</span></td></tr>
+        <tr><td class="wk">9</td><td>Oct 12–18</td><td class="num">34</td><td class="num">15 km</td><td>5 × 1 km @ 6:10</td><td>Gels mandatory from here</td></tr>
+        <tr><td class="wk">10</td><td>Oct 19–25</td><td class="num">37</td><td class="num">16 km</td><td>2 × 3 km @ 6:20</td><td>Race-kit dress rehearsal</td></tr>
+        <tr class="down"><td class="wk">11</td><td>Oct 26–Nov 1</td><td class="num">27</td><td class="num">10 km</td><td>10k time trial (Sat)</td><td><span class="pill p-hard">Checkpoint · sets your goal</span></td></tr>
+        <tr class="phase-row"><td colspan="6">Phase 3 · Peak — race pace and race fuelling, under fatigue.</td></tr>
+        <tr><td class="wk">12</td><td>Nov 2–8</td><td class="num">40</td><td class="num">17 km</td><td>3 × 3 km @ goal HM pace</td><td>Highest-load block</td></tr>
+        <tr><td class="wk">13</td><td>Nov 9–15</td><td class="num">43</td><td class="num">19 km</td><td>400 m × 8 @ 4:20</td><td><span class="pill p-hard">Peak · longest run</span></td></tr>
+        <tr class="down"><td class="wk">14</td><td>Nov 16–22</td><td class="num">31</td><td class="num">12 km</td><td>2 × 2 km @ HM pace</td><td><span class="pill p-rest">Down week</span></td></tr>
+        <tr><td class="wk">15</td><td>Nov 23–29</td><td class="num">40</td><td class="num">18 km</td><td>12 km continuous @ HM pace</td><td>Final confidence session</td></tr>
+        <tr class="phase-row"><td colspan="6">Phase 4 · Taper — volume drops, intensity stays. You should feel restless.</td></tr>
+        <tr><td class="wk">16</td><td>Nov 30–Dec 6</td><td class="num">29</td><td class="num">10 km</td><td>6 × 800 m @ HM pace</td><td>Volume −30%, sharpness kept</td></tr>
+        <tr class="race"><td class="wk">17</td><td>Dec 7–13</td><td class="num">Race</td><td class="num">21.1</td><td>Mon 5k easy · Wed 4k + strides · Fri 3k shakeout</td><td><strong>Sunday 13 Dec</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call">
+    <h4>Realistic targets</h4>
+    <p>Your 28:48 5k projects to about <strong>2:12</strong> by formula — but formulas assume matched endurance, and at 10 km/week you don't have it. With the correction for your mileage, your <em>today</em> half marathon is roughly <strong>2:18–2:22</strong>.</p>
+    <p>Seventeen weeks changes that. You went 33:42 → 28:48 for 5k in three months of under-fuelled, travel-disrupted training. Fed and structured, a 26:00–26:30 5k by November is realistic.</p>
+    <p><strong>Plan for 2:10</strong> (6:10/km). <strong>Expect 2:12–2:18</strong> on the day — first half marathons cost a few minutes to inexperience. <strong>Sub-2:05 is live</strong> if your week-11 10k comes in under 57:00. Sub-2:00 needs it under 55:00: possible, not plannable.</p>
+    <p>Run the first 3 km at 6:20/km regardless of how good you feel. Going out at 5:45 on adrenaline is how most first half marathons die at kilometre 16.</p>
+  </div>
+</section>
+
+<!-- ============ WEEK ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div><h2>Your week</h2>
+    <p class="deck">Built around how you already live: Monday rest, weekends protected, chest and back on Sunday. One change to your split — Arms day becomes Shoulders + Arms, which frees a real Legs day.</p></div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Day</th><th>Session</th><th>Why it sits here</th></tr></thead>
+      <tbody>
+        <tr><td class="ex">Mon</td><td><span class="pill p-rest">Rest</span> Or easy 4 km from week 2</td><td>Your existing rest day, kept</td></tr>
+        <tr><td class="ex">Tue</td><td><span class="pill p-hard">Run</span> Quality — intervals or threshold</td><td>Hardest run gets the freshest legs, straight off rest</td></tr>
+        <tr><td class="ex">Wed</td><td><span class="pill p-iron">Lift</span> Legs + Core — non-negotiable</td><td>Three clear days before the long run</td></tr>
+        <tr><td class="ex">Thu</td><td><span class="pill p-easy">Run</span> Easy 5–7 km</td><td>Flushes leg-day soreness. Night runs fine here</td></tr>
+        <tr><td class="ex">Fri</td><td><span class="pill p-iron">Lift</span> Shoulders + Arms</td><td>Shoulders trained <em>fresh</em> — the thing your old split was trying to achieve</td></tr>
+        <tr><td class="ex">Sat</td><td><span class="pill p-hard">Run</span> Long run — morning, Cubbon Park</td><td>Weekend time, daylight, and 3 days from leg day</td></tr>
+        <tr><td class="ex">Sun</td><td><span class="pill p-iron">Lift</span> Chest + Back — your heavy day</td><td>Upper only, so Saturday's legs recover</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--ink-3);max-width:64ch;">On a 5-day week, drop Thursday's easy run first, Friday's lift second. Never drop Wednesday or Saturday.</p>
+
+  <h3 style="margin-top:38px;">If you can only run twice a week</h3>
+  <p style="margin-top:10px;font-size:.97rem;color:var(--ink-2);max-width:64ch;">This is fine, and it's planned for. Two runs a week still gets you to the start line — it just changes which runs you keep and how fast the long run is allowed to grow.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Keep</th><th>Which session</th><th>Why this one</th></tr></thead>
+      <tbody>
+        <tr><td class="ex">Run 1 <span class="pill p-hard">Never drop this</span></td><td>Saturday long run, at full planned distance</td><td>The only session that builds the specific adaptation the race needs. If you can run <em>once</em> in a week, it's this one.</td></tr>
+        <tr><td class="ex">Run 2</td><td>Tuesday — but blended, not a pure hard session</td><td>10 min easy, then the week's quality reps at the <em>easier</em> end of the range, then 10 min easy. Without easy volume underneath it, a full-intensity session is too big a share of your week.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call">
+    <h4>The three rules for a two-run block</h4>
+    <p><strong>1. Protect the long-run progression above all else.</strong> Weekly volume will drop about 30% and that's acceptable. The long run stalling is not — it's the single variable that determines whether 21 km is survivable in December.</p>
+    <p><strong>2. If two-run weeks run three or more deep, flatten the long run</strong> rather than continuing to climb. Hold it at the last distance you hit until you're back to three runs. Growing a long run on a shrinking base is how people get injured in October.</p>
+    <p><strong>3. Don't replace the lost mileage with intensity.</strong> The temptation is to make the two runs harder to compensate. That's the exact error this entire plan exists to correct. If you want the aerobic work back, add an easy 30-minute incline walk or your pickleball game — impact-free, and it keeps the base ticking over.</p>
+  </div>
+</section>
+
+<!-- ============ SESSIONS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <div><h2>The three strength sessions</h2>
+    <p class="deck">Every load below is set from what you actually lifted this summer. Supersets marked ⊃ — do the pair back to back, then rest. Sessions run 45–65 minutes, with the extra time spent on longer rests between heavy sets rather than more exercises.</p></div>
+  </div>
+
+  <div class="daycard">
+    <div class="daycard-h"><span class="dn">Wednesday · Legs + Core</span><span class="pill p-iron">60 min</span><span class="dm">24 sets · the one that changes everything</span></div>
+    <div class="tw" style="margin:0;border:none;">
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × reps</th><th>Start at</th><th>Rest</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="ex">Barbell Back Squat</td><td class="num">3 × 6–8</td><td class="num">60 kg</td><td class="num">2–3 min</td><td>You've hit 70×6. Build to 80×6 by November.</td></tr>
+          <tr><td class="ex">Dumbbell RDL</td><td class="num">3 × 10–12</td><td class="num">2 × 16 kg</td><td class="num">2 min</td><td>Moderate, never grindy. Hinge at the hip, soft knees, feel the hamstring stretch.</td></tr>
+          <tr><td class="ex">Bulgarian Split Squat</td><td class="num">3 × 8–10 / leg</td><td class="num">bodyweight</td><td class="num">90 s</td><td>Add 2 × 10 kg once you can do 10 clean reps per leg.</td></tr>
+          <tr><td class="ex">Seated Leg Curl ⊃ Standing Calf Raise</td><td class="num">3 × 10–12 / 3 × 10</td><td class="num">36 kg / 40 kg</td><td class="num">90 s</td><td>Calf raise has been missing since May. Heavy, full stretch at the bottom.</td></tr>
+          <tr><td class="ex">45° Back Extension ⊃ Seated Calf Raise</td><td class="num">2 × 15 / 2 × 15–20</td><td class="num">bodyweight / 45 kg</td><td class="num">60 s</td><td>You were doing 30 kg × 30 — far too light. Halve the reps, raise the load.</td></tr>
+          <tr><td class="ex">Hanging Leg Raise ⊃ Pallof Press</td><td class="num">3 × 8–12 / 3 × 10 per side</td><td class="num">bodyweight / light</td><td class="num">45 s</td><td>Core moved here off Friday. Pallof is anti-rotation — improves running economy by cutting torso sway.</td></tr>
+          <tr><td class="ex">Suitcase Carry</td><td class="num">2 × 40 m / side</td><td class="num">24 kg</td><td class="num">45 s</td><td>Replaces Side Bend, which was thickening the waist you want narrow.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>Why this won't wreck your runs:</strong> soreness comes mostly from high-rep sets under stretch and from total volume — your old 16–20 rep style. Six movements at 6–12 reps produces more strength and <em>less</em> soreness than fifteen sets of eighteen. If you're still sore on Saturday, cut the Bulgarian split squats first. With core added this runs ~60 min; the extra time versus Friday is deliberate, since legs and trunk pair naturally.</div>
+  </div>
+
+  <div class="daycard">
+    <div class="daycard-h"><span class="dn">Friday · Shoulders + Arms</span><span class="pill p-iron">45 min</span><span class="dm">18 sets · shoulders trained fresh</span></div>
+    <div class="tw" style="margin:0;border:none;">
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × reps</th><th>Start at</th><th>Rest</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="ex">Seated Shoulder Press (Machine)</td><td class="num">4 × 8–10</td><td class="num">43 kg</td><td class="num">2 min</td><td>Stuck at 36×14 all year — but you've done 47×10. Go heavier, drop the reps.</td></tr>
+          <tr><td class="ex">Cable Lateral Raise (single arm)</td><td class="num">3 × 12–15</td><td class="num">7.5 kg</td><td class="num">75 s</td><td>Side delts create the V-taper. Was 5 kg × 16 — nudge it up.</td></tr>
+          <tr><td class="ex">Rear Delt Fly (Machine)</td><td class="num">3 × 12–15</td><td class="num">52 kg</td><td class="num">75 s</td><td>Was 45×16–20. Same principle: heavier, fewer.</td></tr>
+          <tr><td class="ex">Hammer Curl ⊃ Overhead Triceps Ext.</td><td class="num">3 × 8–10 / 3 × 10–12</td><td class="num">30 kg / 20 kg</td><td class="num">90 s</td><td>25 kg since January. Move to 30 and accept fewer reps. Overhead = long head.</td></tr>
+          <tr><td class="ex">Incline DB Curl ⊃ Rope Pushdown</td><td class="num">2 × 10–12 / 2 × 12–15</td><td class="num">25 kg / 50 kg</td><td class="num">75 s</td><td>Everything else — preacher, reverse, kickback, behind-back — is cut.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>This is the fix to your split problem.</strong> Shoulders and biceps are now trained completely fresh, on their own day, nowhere near chest or back — exactly what you were trying to engineer with the separate Arms day, without spending a whole session on two small muscles. <strong>No core here</strong>, as you asked; it lives on Wednesday.</div>
+  </div>
+
+  <div class="daycard">
+    <div class="daycard-h"><span class="dn">Sunday · Chest + Back</span><span class="pill p-iron">60–65 min</span><span class="dm">22 sets · your heavy day, kept</span></div>
+    <div class="tw" style="margin:0;border:none;">
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × reps</th><th>Start at</th><th>Rest</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="ex">Incline DB Press ⊃ Pull-Up</td><td class="num">4 × 6–10 / 4 × 5–8</td><td class="num">50 kg / BW</td><td class="num">2 min</td><td>Your one progressing lift — keep driving it. Pull-ups haven't been logged since May; bring them back and add weight when you clear 8.</td></tr>
+          <tr><td class="ex">Flat DB or Machine Press ⊃ Barbell Row</td><td class="num">3 × 8–12 / 3 × 8–10</td><td class="num">2 × 22 kg / 50 kg</td><td class="num">2 min</td><td>Horizontal pull is missing from your program. This is the back thickness that makes lean read as strong.</td></tr>
+          <tr><td class="ex">Lat Pulldown</td><td class="num">3 × 10–12</td><td class="num">54 kg</td><td class="num">90 s</td><td>Has oscillated 43–54 kg for eight months. Pick 54 and progress it.</td></tr>
+          <tr><td class="ex">Cable Fly Crossovers</td><td class="num">3 × 12–15</td><td class="num">60 kg</td><td class="num">75 s</td><td><strong>One fly variation only.</strong> Low Cable Fly, Pec Deck and Machine Fly are all cut.</td></tr>
+          <tr><td class="ex">Seated Cable Row</td><td class="num">3 × 10–12</td><td class="num">moderate</td><td class="num">90 s</td><td>Second horizontal pull, different angle. Squeeze, don't heave.</td></tr>
+          <tr><td class="ex">Cable Crunch</td><td class="num">3 × 12–15</td><td class="num">75 kg</td><td class="num">60 s</td><td>You do 75 × 20. Same weight, fewer reps, slower eccentric.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>Progression rule for all three days:</strong> when you hit the top of the rep range on every set, add 2.5 kg next session and drop back to the bottom of the range. That single habit would have moved eight stalled lifts this year. And <strong>log RPE</strong> — you have 1,424 sets and zero RPE entries, so nothing in your data shows how hard you're actually training. Target 7–9 on compounds, 8–10 on isolation.</div>
+  </div>
+
+  <h3 style="margin-top:44px;">Are you overtraining anything? The audit</h3>
+  <p style="margin-top:10px;font-size:.97rem;color:var(--ink-2);max-width:64ch;">Short answer: no — and you never were. Your problem was never total volume. It was <em>distribution</em> (arms got eight times the legs) and <em>exercise count</em> (the same muscle hit four ways, none progressing). Here's every muscle group, before and after.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Muscle</th><th>Your sets/wk</th><th>New sets/wk</th><th>Productive range</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="ex">Back</td><td class="num">6.8</td><td class="num">13</td><td class="num">10–20</td><td>Was under-done. Nearly doubled — and now includes the horizontal row you had no version of.</td></tr>
+        <tr><td class="ex">Chest</td><td class="num">7.9</td><td class="num">10</td><td class="num">10–20</td><td><strong>Volume slightly up, exercises down from 5 to 3.</strong> You weren't doing too much chest — you were doing too many chest <em>movements</em>.</td></tr>
+        <tr><td class="ex">Delts</td><td class="num">8.1</td><td class="num">10</td><td class="num">8–16</td><td>Fine before, better now: trained fresh, heavier, with side and rear delts prioritised.</td></tr>
+        <tr><td class="ex">Hams / glutes</td><td class="num">0.9</td><td class="num">8</td><td class="num">8–16</td><td><strong>The one real hole.</strong> Nine-fold increase, from nothing.</td></tr>
+        <tr><td class="ex">Quads</td><td class="num">2.2</td><td class="num">6</td><td class="num">8–16</td><td>Deliberately at the low end — your running supplies plenty of quad stimulus and more would compromise Saturday.</td></tr>
+        <tr><td class="ex">Calves</td><td class="num">1.7</td><td class="num">5</td><td class="num">6–12</td><td>Low end but heavy now, not 30-rep. Your best Achilles insurance.</td></tr>
+        <tr><td class="ex">Biceps</td><td class="num">7.9</td><td class="num">5</td><td class="num">6–14</td><td><strong>Cut by a third</strong> — but add the 13 back sets that also train them and you're comfortably in range on far less time.</td></tr>
+        <tr><td class="ex">Triceps</td><td class="num">6.6</td><td class="num">5</td><td class="num">6–14</td><td>Cut, and rebalanced: overhead work added for the long head, three pushdown variants removed.</td></tr>
+        <tr><td class="ex">Core</td><td class="num">8.3</td><td class="num">8</td><td class="num">6–12</td><td>Same volume, completely different content — anti-rotation and carries replace side bends.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call iron">
+    <h4>The honest caveat about frequency</h4>
+    <p>Every muscle here is trained <strong>once a week</strong>. Twice-weekly frequency is modestly better for hypertrophy at matched volume — so on pure muscle-building grounds this is a small compromise. It's the right one: with three lifting days, four runs, a deficit and a December race, a second weekly exposure would cost you the long run or the leg day.</p>
+    <p>After 13 December, when running volume drops, move to four lifting days as upper/lower twice a week. That's when you chase the physique hardest — trained, fed, and off the race clock.</p>
+  </div>
+</section>
+
+<!-- ============ RUN SESSIONS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <div><h2>The four run types</h2>
+    <p class="deck">Distances come from the week table above. These are the rules for how each one is executed.</p></div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Type</th><th>When</th><th>HR cap</th><th>Pace</th><th>How to run it</th></tr></thead>
+      <tbody>
+        <tr><td class="ex"><span class="pill p-easy">Easy</span></td><td>Mon, Thu</td><td class="num">≤ 155</td><td class="num">7:45–8:30</td><td>Conversational. Walk if HR drifts over 155. Cadence 170 spm. Koramangala or Agara, night is fine.</td></tr>
+        <tr><td class="ex"><span class="pill p-hard">Quality</span></td><td>Tue</td><td class="num">166–176 in reps</td><td class="num">see table</td><td>10 min easy warm-up, the reps, 10 min cool-down. Jog recoveries, don't stand. Finish 3 h before bed.</td></tr>
+        <tr><td class="ex"><span class="pill p-hard">Long</span></td><td>Sat AM</td><td class="num">≤ 158</td><td class="num">7:30–8:15</td><td>The session that wins December. Cubbon Park, or Agara loops. Start slower than feels right; last 2 km should be your fastest.</td></tr>
+        <tr><td class="ex"><span class="pill p-easy">Strides</span></td><td>after easy runs, wks 1–5</td><td class="num">—</td><td class="num">~4:30</td><td>6–8 × 20 s at controlled-fast, full walk recovery. Not sprints. Builds mechanics and cadence without aerobic cost.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ NUTRITION ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <div><h2>Nutrition</h2>
+    <p class="deck">Your Apple Watch measured TDEE at ~2,300–2,350 on well-worn days, confirming your instinct that 2,400 is roughly maintenance. You picked 1,900. That holds — but the number has to rise with your mileage to stay the same deficit.</p></div>
+  </div>
+
+  <div class="call easy">
+    <h4>Correction: your weekends aren't the problem</h4>
+    <p>I assumed a ~3,100 kcal weekend and built an argument on it. Your actual Sunday — one larger meal around 1,200, one standard meal at 500–600, some incidental extra — lands nearer <strong>2,000–2,300</strong>. That's a normal day, not a blowout. Your weekly average is roughly <strong>1,950</strong>, which is a genuine and reasonably disciplined ~375 kcal deficit. The restrict-rebound theory doesn't apply to you; scratch it.</p>
+    <p>Which means your eight stalled lifts have a simpler explanation: eight months of training in a deficit, at 16–20 reps, with no load progression. In a deficit you don't gain much regardless — but you should at least hold and slowly add strength, and high-rep work at a fixed weight won't even do that.</p>
+  </div>
+
+  <div class="call">
+    <h4>You chose 1,900. Here's the version of that which won't break in November.</h4>
+    <p>1,900 against today's maintenance of ~2,325 is a <strong>425 kcal deficit — about 18%.</strong> That's a defensible, well-chosen number, and for the next eight weeks it's genuinely fine.</p>
+    <p>The trap is what happens if you hold it. As mileage triples, your maintenance climbs to roughly <strong>2,620</strong> by week 12. Hold 1,900 through that and your deficit silently widens from 425 to <strong>720 kcal</strong> — you'd be nearly doubling the aggression at the exact moment the training gets hardest, without ever deciding to. Energy availability would fall to ~24 kcal/kg lean mass, which is where adaptation stops and injuries start.</p>
+    <p>So the table below <strong>keeps your deficit fixed at ~425</strong> and lets the plate follow the workload. You are not eating more; you're holding the same deficit you picked. That produces roughly <strong>0.4–0.45 kg/week — about 6–7 kg across 17 weeks</strong>, which takes you from ~71 kg at 20% to around 64–65 kg at roughly 13%. That is a visible-abs physique, arrived at trained rather than depleted.</p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Block</th><th>Maintenance</th><th>Eat daily</th><th>Protein</th><th>Carbs</th><th>Fat</th></tr></thead>
+      <tbody>
+        <tr class="race"><td class="ex">Now</td><td class="num">~2,325</td><td class="num">~1,950 avg</td><td class="num">100–120 g</td><td class="num">~180 g</td><td class="num">?</td></tr>
+        <tr><td class="ex">Weeks 1–5 (16–25 km)</td><td class="num">~2,350</td><td class="num">1,900</td><td class="num">155 g</td><td class="num">185 g</td><td class="num">60 g</td></tr>
+        <tr><td class="ex">Weeks 6–11 (28–37 km)</td><td class="num">~2,500</td><td class="num">2,050</td><td class="num">155 g</td><td class="num">220 g</td><td class="num">62 g</td></tr>
+        <tr><td class="ex">Weeks 12–15 (peak)</td><td class="num">~2,620</td><td class="num">2,200</td><td class="num">155 g</td><td class="num">250 g</td><td class="num">65 g</td></tr>
+        <tr><td class="ex">Race week</td><td class="num">~2,500</td><td class="num">2,400 + load</td><td class="num">145 g</td><td class="num">330 → 570 g</td><td class="num">55 g</td></tr>
+        <tr class="down"><td class="ex">Post-race, mid-Dec on</td><td class="num">~2,250</td><td class="num">1,850</td><td class="num">160 g</td><td class="num">170 g</td><td class="num">58 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:34px;">A 1,900 kcal day, built from what you already eat</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Meal</th><th>What</th><th>kcal</th><th>Protein</th></tr></thead>
+      <tbody>
+        <tr><td class="ex">Breakfast <span class="pill p-hard">stop skipping</span></td><td>3 boiled eggs + 1 slice brown bread + 1 banana</td><td class="num">395</td><td class="num">22 g</td></tr>
+        <tr><td class="ex">Lunch</td><td>150 g air-fryer chicken + 1 cup rice + large veg portion</td><td class="num">600</td><td class="num">47 g</td></tr>
+        <tr><td class="ex">Snack</td><td>150 g Greek yogurt</td><td class="num">100</td><td class="num">15 g</td></tr>
+        <tr><td class="ex">Post-workout</td><td>1 scoop whey (Super U / Cosmix) with water</td><td class="num">120</td><td class="num">25 g</td></tr>
+        <tr><td class="ex">Dinner</td><td>150 g chicken + 2 roti + large veg with 1 tsp ghee</td><td class="num">600</td><td class="num">49 g</td></tr>
+        <tr><td class="ex">Evening</td><td>Small handful of nuts</td><td class="num">85</td><td class="num">3 g</td></tr>
+        <tr class="down"><td class="ex">Total</td><td>Weekends included. Put most carbs around Tue / Wed / Sat sessions.</td><td class="num">1,900</td><td class="num">161 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--ink-3);max-width:64ch;">Still 300 g of chicken a day — the protein goes <em>up</em> from 110 g even though calories barely move. That's the trade that keeps muscle on you while you cut.</p>
+
+  <div class="call">
+    <h4>Three tripwires — if any fires, add 250 kcal of carbs</h4>
+    <p>A 425 kcal deficit alongside a 4× mileage ramp is at the aggressive end for holding muscle. That's a legitimate choice, but it needs objective abort criteria rather than feel, because "I'm fine" is exactly what under-recovery says.</p>
+    <p><strong>1.</strong> Your week-11 10k time trial is slower than your week-5 5k pace predicts. <strong>2.</strong> Resting heart rate climbs 4+ bpm above your rolling baseline for more than a week. <strong>3.</strong> Weight drops faster than 0.6 kg/week for two consecutive weeks.</p>
+    <p>Any one of those means the deficit has outrun the training. Add the calories as carbohydrate, keep protein where it is, and reassess in two weeks. You'll still get lean — a fortnight at a smaller deficit costs almost nothing, and a stress fracture in November costs the race.</p>
+  </div>
+
+  <div class="duo">
+    <div>
+      <h4>The four changes that get you there</h4>
+      <ul>
+        <li><strong>Eat breakfast.</strong> Biggest single lever — you're skipping ~475 kcal and 25 g protein, then wondering why the evening is hard.</li>
+        <li><strong>Chicken 200 g → 300 g/day.</strong> 150 g per meal instead of 100 g. Ask your cook to weigh it raw; it's the one thing worth measuring.</li>
+        <li><strong>Double the vegetables.</strong> Broccoli, beans, zucchini, spinach. You're near 12–15 g fibre; target 30 g. You already spotted this.</li>
+        <li><strong>Greek yogurt 50 g → 150 g.</strong> Cheap protein and live cultures for the gut goal you mentioned.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Tracking, supplements, water</h4>
+      <ul>
+        <li><strong>Don't log everything</strong> — you'll quit. Weigh the raw chicken, and weigh yourself 3–4 mornings a week. The two-week weight trend beats any calorie app because it measures reality, not your estimate of it. Losing faster than 0.4 kg/week? Eat more.</li>
+        <li><strong>Water 2 L → 3–3.5 L.</strong> Bengaluru, evening running, and you're already short.</li>
+        <li><strong>Creatine 5 g, omega-3, prebiotic, magnesium, zinc</strong> — all good, keep as is.</li>
+        <li><strong>Check your vitamin D dose.</strong> Weekly is fine at 60,000 IU (standard in India); 2,000 IU weekly is not enough.</li>
+        <li><strong>Get ferritin, vitamin D and B12 tested</strong> before week 6. Four months of new running plus a deficit is exactly where low ferritin shows up — and it presents as "my easy runs feel awful."</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAVEL ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">09</div>
+    <div><h2>The travel protocol</h2>
+    <p class="deck">The single most likely thing to cost you December. June and July already showed you what happens without one.</p></div>
+  </div>
+  <div class="duo">
+    <div>
+      <h4>Minimum viable week — never go below this</h4>
+      <ul>
+        <li><strong>2 runs.</strong> One easy 5 km, one as long as the plan allows. Hotel treadmill counts.</li>
+        <li><strong>2 full-body sessions,</strong> 30 minutes, bodyweight and band.</li>
+        <li>Four sessions holds roughly 80% of your fitness on 40% of the time.</li>
+        <li><strong>Pack a resistance band.</strong> Weighs nothing, removes every excuse.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>The 30-minute hotel session</h4>
+      <ul>
+        <li>Bulgarian split squat — 3 × 12/leg</li>
+        <li>Single-leg RDL — 3 × 10/leg</li>
+        <li>Feet-elevated push-ups — 3 × max</li>
+        <li>Band row — 3 × 15</li>
+        <li>Band Pallof press — 3 × 10/side</li>
+        <li>Calf raise off a step — 3 × 20</li>
+        <li>Plank — 3 × 45 s</li>
+      </ul>
+    </div>
+  </div>
+  <div class="call">
+    <h4>If a week gets lost anyway</h4>
+    <p>Don't catch up. Repeat the previous week's volume once, then rejoin where the calendar says. Cramming two weeks into one is how you arrive in December injured instead of undertrained — and undertrained still finishes the race.</p>
+  </div>
+</section>
+
+<!-- ============ CHECKPOINTS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">10</div>
+    <div><h2>How you'll know it's working</h2>
+    <p class="deck">Five checkpoints. The first matters most and it isn't a race result.</p></div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>When</th><th>Check</th><th>Target</th><th>What it tells you</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">Week 4<br><span style="color:var(--ink-3);font-weight:400;">Sep 7–13</span></td><td class="ex">Easy pace at 150 bpm</td><td class="num">8:15 → 7:40/km</td><td>Aerobic base responding. Leading indicator for everything else.</td></tr>
+        <tr><td class="wk">Week 5<br><span style="color:var(--ink-3);font-weight:400;">Sep 20</span></td><td class="ex">5k time trial</td><td class="num">≤ 27:45</td><td>Speed retained through the base block.</td></tr>
+        <tr><td class="wk">Ongoing</td><td class="ex">Resting HR</td><td class="num">59 → sub-55</td><td>You hit 56.3 in May, your best month. Under 55 means the base is real.</td></tr>
+        <tr><td class="wk">Week 11<br><span style="color:var(--ink-3);font-weight:400;">Nov 1</span></td><td class="ex">10k time trial</td><td class="num">≤ 59:00</td><td><strong>Sets your race goal.</strong> Under 57:00 → chase sub-2:05. Over 62:00 → run 2:15 well.</td></tr>
+        <tr><td class="wk">Week 13<br><span style="color:var(--ink-3);font-weight:400;">Nov 15</span></td><td class="ex">19 km long run</td><td class="num">Finish comfortably</td><td>Durability confirmed. Taper and adrenaline cover the last 2 km on race day.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call easy">
+    <h4>Tracking the physique</h4>
+    <p>Photos in the same light and pose every 4 weeks, plus a waist measurement at the navel. Don't use scale weight alone — you'll be adding leg muscle you've never had while losing fat, and the scale will sit still and lie to you for weeks. Waist down and lifts up is the recomposition signal, and the mirror confirms it before the scale does.</p>
+    <p><strong>Shoot in the same conditions every time</strong> — the daylight photos and the overhead-bathroom-light photos you sent look like two different body fat percentages. Pick one spot, one time of day, fasted, and stick to it, or you'll read lighting changes as progress.</p>
+  </div>
+</section>
+
+<!-- ============ PHYSIQUE ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">11</div>
+    <div><h2>Where you are, and when the abs arrive</h2>
+    <p class="deck">From the photos: your ~20% self-estimate is accurate. Here's what the pictures say that the spreadsheets didn't, and the honest timeline.</p></div>
+  </div>
+
+  <div class="duo">
+    <div>
+      <h4>What the photos show</h4>
+      <ul>
+        <li><strong>Body fat ≈ 18–21%.</strong> Your own estimate was well calibrated — that's rarer than you'd think and it means the calorie maths in this plan can be trusted.</li>
+        <li><strong>Upper body clearly outpaces lower.</strong> Chest, arms and shoulders carry visible mass; the legs in the full-length shots are noticeably behind. This is 14.5 weekly arm sets against 0.9 for hamstrings, rendered in the mirror.</li>
+        <li><strong>Lat width is your biggest untapped aesthetic lever.</strong> Your shoulders don't flare much relative to your waist — and the V-taper is built from lats and side delts, not arms. Both go up substantially in the new program.</li>
+        <li><strong>Fullness sits low and anterior on the abdomen.</strong> Some of that is fat at 20%, but at 12–15 g of fibre and under 2 L of water a day, some is very likely digestive. The fibre and water changes may visibly flatten this within a fortnight, before you lose a single kilo.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>What this changes in the plan</h4>
+      <ul>
+        <li><strong>Nothing about the calories</strong> — 20% at 71 kg is exactly what the deficit was built around.</li>
+        <li><strong>It raises the priority of back work.</strong> For the look you're describing, the barbell row and pull-ups will do more visually than any amount of curling. That's why back volume nearly doubled.</li>
+        <li><strong>It validates the leg day.</strong> Quads and hamstrings are the most visibly under-built thing you own, and they're also what a half marathon needs. Rare case where the aesthetic and performance fix are the same session.</li>
+        <li><strong>Posture is worth a look</strong> — the side profiles hint at a slight forward-shoulder set, consistent with years of pressing and almost no rowing. Hard to judge from a photo where you're holding a phone up, but the added rows, rear delts and Pallof press address it either way.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Checkpoint</th><th>Weight</th><th>Body fat</th><th>What you should see</th></tr></thead>
+      <tbody>
+        <tr class="race"><td class="ex">Now · 16 Aug</td><td class="num">71.0 kg</td><td class="num">~20%</td><td>No ab definition. Soft lower abdomen. Upper body carries the physique.</td></tr>
+        <tr><td class="ex">Week 5 · 20 Sep</td><td class="num">~69 kg</td><td class="num">~18.5%</td><td>Waist down 2–3 cm. Bloating gone from the fibre and water fix. Legs starting to fill.</td></tr>
+        <tr><td class="ex">Week 9 · 18 Oct</td><td class="num">~67.5 kg</td><td class="num">~16.5%</td><td>Upper abs beginning to show in good light. Lats visibly wider.</td></tr>
+        <tr><td class="ex">Week 13 · 15 Nov</td><td class="num">~65.8 kg</td><td class="num">~14.5%</td><td>Upper abs visible most of the time; obliques appearing. Quads showing separation.</td></tr>
+        <tr class="down"><td class="ex">Race day · 13 Dec</td><td class="num">~64.5 kg</td><td class="num">~13%</td><td><strong>Full ab definition in normal light.</strong> The physique you described, arriving the same week as the race.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call">
+    <h4>Two honest caveats on that table</h4>
+    <p>It assumes you hold nearly all your lean mass — which needs the 160 g of protein and the three lifting days actually happening, not just the running. Miss those and you'll hit 64 kg looking smaller rather than leaner, which is the classic runner's mistake and the one thing this whole hybrid plan exists to prevent.</p>
+    <p>And you'll likely look your leanest around <strong>weeks 13–15</strong>, not on race day itself — taper and carb-loading pull water and glycogen back into the muscle. That's a good thing for the race, and worth knowing so you don't misread it in the mirror during taper week.</p>
+  </div>
+</section>
+
+<!-- ============ THE ARC ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">12</div>
+    <div><h2>Getting to the reference physique</h2>
+    <p class="deck">Short answer: yes, genuinely achievable — these are lean athletic builds, not pharmaceutical ones. But it's roughly an 18-month arc, and December is the first third of it, not the destination.</p></div>
+  </div>
+
+  <div class="duo">
+    <div>
+      <h4>What those physiques actually are</h4>
+      <ul>
+        <li><strong>Body fat 9–11%.</strong> That's the dominant variable. Most of what separates you from those photos today is 9 percentage points of body fat, not years of missing muscle.</li>
+        <li><strong>Moderate muscle mass, well distributed.</strong> None of them are big. They're lean with complete development — which is a far more reachable target than mass.</li>
+        <li><strong>Visible quad development</strong> in both of the standing shots. Legs are doing real work in that look.</li>
+        <li><strong>The first photo is a peak-condition shot</strong> — pumped, well lit, very lean, with vascularity that needs sub-10% plus a degree of genetic luck. Treat it as the ceiling, not the daily standard. The other two are closer to an achievable everyday look.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Your actual gap, ranked</h4>
+      <ul>
+        <li><strong>1. Body fat — 20% → ~10%.</strong> Being handled. This alone gets you most of the way and is the work of the next 6–9 months.</li>
+        <li><strong>2. Legs.</strong> Your weakest area by a distance, and clearly present in the references. The Wednesday session is the fix.</li>
+        <li><strong>3. Lat width and side delts.</strong> The taper in all three photos comes from here. Both roughly doubled in the new program.</li>
+        <li><strong>4. Arms — you need nothing.</strong> Genuinely. Your arm development already matches the references; it's the one box you've already ticked, which is exactly why it was the wrong thing to give a dedicated day to.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Phase</th><th>When</th><th>Weight / BF</th><th>Focus</th><th>Training shape</th></tr></thead>
+      <tbody>
+        <tr class="race"><td class="ex">Today</td><td>Aug 2026</td><td class="num">71 kg · 20%</td><td>—</td><td>3 lifts + 3 runs</td></tr>
+        <tr><td class="ex">Phase 1 · Cut &amp; race <span class="pill p-hard">this plan</span></td><td>Aug–Dec 2026</td><td class="num">64.5 kg · 13%</td><td>Lose fat, build the aerobic engine, finally train legs</td><td>3 lifts + 3–4 runs, −425 kcal</td></tr>
+        <tr><td class="ex">Phase 2 · Lean gain <span class="pill p-iron">where the muscle comes</span></td><td>Jan–Aug 2027</td><td class="num">~69 kg · 13–14%</td><td>Add 3–4 kg of lean mass, concentrated in legs, back and delts</td><td>4 lifts (upper/lower ×2) + 2 runs, +200 kcal</td></tr>
+        <tr><td class="ex">Phase 3 · Reveal</td><td>Sep–Dec 2027</td><td class="num">~67 kg · 10%</td><td>Cut the fat back off, keeping the new muscle</td><td>4 lifts + 3 runs, −400 kcal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call iron">
+    <h4>Why it has to be three phases and not one</h4>
+    <p>You cannot cut your way to more muscle. The legs, lats and delts you're missing require a period of eating at or slightly above maintenance with heavy lifting as the priority — which is the exact opposite of what a half-marathon build in a deficit demands. Trying to do both at once is how people spend three years going nowhere.</p>
+    <p>So: take the fat off and build a real aerobic engine by December. Then flip — four lifting days, running dropped to two maintenance sessions a week, a small surplus, and eight months of actually driving the lifts that have sat still since January. Then take the fat back off in late 2027.</p>
+    <p><strong>The number to notice is the end state: ~67 kg at 10%, against 71 kg at 20% today.</strong> Four kilos lighter, carrying roughly four kilos more muscle and six kilos less fat. That's a transformation, and it lands you very close to the second and third photos.</p>
+  </div>
+
+  <div class="call">
+    <h4>The one thing that would derail it</h4>
+    <p>Natural muscle gain at your training age is roughly 2–4 kg a year under good conditions — and that's the rate limiter on this entire timeline, not effort or programming. It cannot be rushed, and it goes to near zero in a deficit.</p>
+    <p>Which means the highest-risk decision in front of you isn't this plan. It's what you do in January. The instinct after seeing abs in December will be to keep cutting to chase the last few percent. Don't. That's the point where you'd trade the physique you actually want for a leaner version of the one you already have.</p>
+  </div>
+</section>
+
+<!-- ============ MONDAY ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">13</div>
+    <div><h2>Start here on Monday</h2>
+    <p class="deck">If you change nothing else this week, change these six.</p></div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Change</th><th>Replaces</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="ex">Hold 1,900 daily, and raise it as mileage climbs (see table)</td><td>1,900 flat all the way to December, which quietly becomes a 720 kcal deficit</td></tr>
+        <tr><td class="num">2</td><td class="ex">Eat breakfast, and take protein to 150 g</td><td>Skipped breakfast, 100–120 g protein</td></tr>
+        <tr><td class="num">3</td><td class="ex">Cap every easy run at 155 bpm, even at 8:15/km</td><td>Every run of 5 km+ at 155–173 bpm</td></tr>
+        <tr><td class="num">4</td><td class="ex">Legs on Wednesday, treated as unmissable</td><td>Legs tacked onto shoulder day, then dropped since 5 June</td></tr>
+        <tr><td class="num">5</td><td class="ex">Move sets to 6–12 reps; add 2.5 kg at the top of the range</td><td>57% of sets at 16+ reps, eight stalled lifts</td></tr>
+        <tr><td class="num">6</td><td class="ex">Lights out 45 min earlier; no hard running within 3 h of bed</td><td>5.9 h average, 45% of nights under six</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  Built from 354 Hevy sessions (Dec 2023 – Aug 2026), the full Strava export (40 runs, 191 km, Apr – Aug 2026), and 1.3 M Apple Health records · HR zones from a recorded max of 191 bpm (9 Jul 2026), threshold ~174 · Sleep and TDEE figures reflect inconsistent watch wear and are directional · Race: Sunday 13 December 2026
+</footer>
+
+</div>
+
+</body>
+</html>

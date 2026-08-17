@@ -1,0 +1,1413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>119 Days · Anupam</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🏃%3C/text%3E%3C/svg%3E">
+
+<style>
+ .sitenav{position:sticky;top:0;z-index:50;display:flex;gap:2px;padding:8px 16px;
+   background:var(--ground,#F6F7F5);border-bottom:1px solid var(--rule-2,#C7CFCB);
+   font-family:ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;flex-wrap:wrap;}
+ .sitenav a{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+   color:var(--ink-3,#7C8683);text-decoration:none;padding:6px 12px;border-radius:2px;}
+ .sitenav a:hover{color:var(--ink,#15181A);background:var(--surface-2,#EFF1EE);}
+ .sitenav a:focus-visible{outline:2px solid var(--easy,#2E7D6E);outline-offset:1px;}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <a href="index.html">Home</a><a href="calendar.html">119 Days</a><a href="kitchen.html">Kitchen</a><a href="plan.html">The Plan</a>
+</nav>
+
+<style>
+  :root{
+    --ground:#F6F7F5; --surface:#FFFFFF; --surface-2:#EFF1EE;
+    --ink:#15181A; --ink-2:#4A5350; --ink-3:#7C8683;
+    --rule:#DCE1DE; --rule-2:#C7CFCB;
+    --easy:#2E7D6E; --easy-bg:#E4F0ED;
+    --hard:#C2542B; --hard-bg:#F8E8E1;
+    --iron:#3F5487; --iron-bg:#E5EAF3;
+    --rest:#8A9490; --rest-bg:#ECEEEC;
+    --font-display:ui-sans-serif,-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+    --font-body:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --font-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1214; --surface:#161A1C; --surface-2:#1D2224;
+      --ink:#E9EDEA; --ink-2:#A3ADAA; --ink-3:#78827F;
+      --rule:#262C2E; --rule-2:#333A3C;
+      --easy:#4FB49F; --easy-bg:#132A26;
+      --hard:#E8794A; --hard-bg:#2E1913;
+      --iron:#7C97D4; --iron-bg:#161D2C;
+      --rest:#79837F; --rest-bg:#1B1F20;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1214; --surface:#161A1C; --surface-2:#1D2224;
+    --ink:#E9EDEA; --ink-2:#A3ADAA; --ink-3:#78827F;
+    --rule:#262C2E; --rule-2:#333A3C;
+    --easy:#4FB49F; --easy-bg:#132A26;
+    --hard:#E8794A; --hard-bg:#2E1913;
+    --iron:#7C97D4; --iron-bg:#161D2C;
+    --rest:#79837F; --rest-bg:#1B1F20;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;margin:0;padding:0 20px 110px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1000px;margin:0 auto;}
+  h1,h2,h4,h5,.label,table,summary,.dn,.dsess{font-family:var(--font-display);}
+  h1{font-size:clamp(2.1rem,5.5vw,3.3rem);line-height:1.03;letter-spacing:-.033em;font-weight:700;margin:0;}
+  .label{font-family:var(--font-mono);font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
+  header{padding:60px 0 0;}
+  .rule-heavy{height:3px;background:var(--ink);margin:22px 0 0;}
+  .sub{font-size:1.06rem;color:var(--ink-2);max-width:60ch;margin:16px 0 0;}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .lg{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:2px;font-weight:500;}
+  .lg.e{background:var(--easy-bg);color:var(--easy);}
+  .lg.h{background:var(--hard-bg);color:var(--hard);}
+  .lg.i{background:var(--iron-bg);color:var(--iron);}
+  .lg.r{background:var(--rest-bg);color:var(--rest);}
+
+  .bar{position:sticky;top:0;z-index:5;background:var(--ground);border-bottom:1px solid var(--rule-2);
+       padding:11px 0;margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .bar button{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+    background:var(--surface);color:var(--ink-2);border:1px solid var(--rule-2);padding:6px 12px;border-radius:2px;cursor:pointer;}
+  .bar button:hover{border-color:var(--ink-3);color:var(--ink);}
+  .bar button:focus-visible{outline:2px solid var(--easy);outline-offset:2px;}
+  .prog{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-3);letter-spacing:.06em;margin-left:auto;}
+
+  details.wk{border:1px solid var(--rule);background:var(--surface);margin-top:14px;}
+  details.wk.down{background:color-mix(in srgb,var(--surface-2) 50%,var(--surface));}
+  details.wk.race-wk{border-color:var(--hard);border-width:2px;}
+  summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;padding:14px 18px;cursor:pointer;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary:focus-visible{outline:2px solid var(--easy);outline-offset:-2px;}
+  summary::before{content:"+";font-family:var(--font-mono);color:var(--ink-3);font-weight:600;width:12px;}
+  details[open] summary::before{content:"–";}
+  .wn{font-weight:700;font-size:1.02rem;letter-spacing:-.01em;}
+  .wd{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-3);letter-spacing:.05em;}
+  .wkm{font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--hard);letter-spacing:.05em;}
+  .wph{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:auto;}
+  .wbody{padding:0 18px 20px;border-top:1px solid var(--rule);}
+  .wnote{font-size:.92rem;color:var(--ink-2);margin:14px 0 0;max-width:66ch;}
+
+  .days{margin-top:16px;border:1px solid var(--rule);}
+  .day{display:grid;grid-template-columns:34px minmax(200px,1.05fr) 1.5fr;gap:12px;padding:11px 13px;border-bottom:1px solid var(--rule);align-items:start;}
+  .day:last-child{border-bottom:none;}
+  .day.hard{background:color-mix(in srgb,var(--hard-bg) 32%,transparent);}
+  .day.lift{background:color-mix(in srgb,var(--iron-bg) 30%,transparent);}
+  .day.rest{background:color-mix(in srgb,var(--rest-bg) 45%,transparent);}
+  .day.race{background:var(--hard-bg);}
+  .dhead{display:flex;gap:9px;align-items:baseline;}
+  .dn{font-weight:700;font-size:.86rem;}
+  .dd{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-3);}
+  .dsess{font-size:.92rem;font-weight:600;color:var(--ink);margin-top:2px;}
+  .ddet{font-size:.8rem;color:var(--ink-2);margin-top:1px;}
+  .dmeals{display:flex;flex-direction:column;gap:2px;font-size:.78rem;color:var(--ink-2);}
+  .dkc{color:var(--ink-3);font-size:.72rem;margin-top:3px;font-family:var(--font-mono);}
+  .day.race .dsess{color:var(--hard);font-size:1.02rem;}
+
+  .chk{display:grid;place-items:center;padding-top:2px;}
+  .chk input{position:absolute;opacity:0;width:0;height:0;}
+  .chk span{width:19px;height:19px;border:1.5px solid var(--rule-2);border-radius:3px;display:block;background:var(--surface);cursor:pointer;transition:.12s;}
+  .chk input:checked + span{background:var(--easy);border-color:var(--easy);}
+  .chk input:checked + span::after{content:"";display:block;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);margin:2px auto 0;}
+  .chk input:focus-visible + span{outline:2px solid var(--easy);outline-offset:2px;}
+  .day:has(input:checked){opacity:.48;}
+
+  .lh{font-size:.72rem;font-family:var(--font-mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 0;font-weight:500;}
+  .lifts{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:12px;margin-top:10px;}
+  .ltbl{border:1px solid var(--rule);background:var(--surface);overflow-x:auto;}
+  .ltbl h5{font-size:.8rem;margin:0;padding:9px 12px;background:var(--surface-2);border-bottom:1px solid var(--rule-2);font-weight:700;}
+  table.lift{border-collapse:collapse;width:100%;font-size:.74rem;font-variant-numeric:tabular-nums;}
+  table.lift th{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);white-space:nowrap;}
+  table.lift td{padding:6px 10px;border-bottom:1px solid var(--rule);color:var(--ink-2);}
+  table.lift tbody tr:last-child td{border-bottom:none;}
+  table.lift td.n{color:var(--ink);font-weight:600;}
+  table.lift td.k{font-family:var(--font-mono);white-space:nowrap;color:var(--ink);font-weight:600;}
+  table.lift td.cue{font-size:.68rem;color:var(--ink-3);font-family:var(--font-body);}
+  .dmeals em{font-family:var(--font-mono);font-style:normal;font-size:.62rem;letter-spacing:.09em;color:var(--ink-3);margin-right:5px;}
+
+  .note-box{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--hard);padding:17px 19px;margin-top:22px;}
+  .note-box h4{margin:0 0 7px;font-size:.92rem;}
+  .note-box p{font-size:.9rem;color:var(--ink-2);max-width:66ch;margin:0;}
+  .note-box p + p{margin-top:8px;}
+  .note-box.easy{border-left-color:var(--easy);}
+  footer{margin-top:52px;padding-top:17px;border-top:3px solid var(--ink);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;color:var(--ink-3);}
+  @media (max-width:720px){
+    body{padding:0 14px 70px;}
+    .day{grid-template-columns:30px 1fr;}
+    .dmeals{grid-column:2;padding-top:5px;border-top:1px dashed var(--rule);margin-top:5px;}
+    .wph{margin-left:0;width:100%;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="label">Day-by-day · 17 August → 13 December 2026</div>
+  <div class="rule-heavy"></div>
+  <h1 style="margin-top:22px;">119 Days</h1>
+  <p class="sub">Every session, every weight, every meal, for all 119 days — built from your own recipes. Tick each day as you finish it. Nothing here needs a decision from you.</p>
+  <div class="legend">
+    <span class="lg h">Hard run</span><span class="lg e">Easy run</span><span class="lg i">Lift</span><span class="lg r">Rest</span>
+  </div>
+</header>
+
+<div class="bar">
+  <button id="today">Jump to this week</button>
+  <button id="expand">Expand all</button>
+  <button id="collapse">Collapse all</button>
+  <button id="reset">Clear ticks</button>
+  <span class="prog" id="prog">0 / 119 days</span>
+</div>
+
+<div class="note-box easy">
+  <h4>Three runs, and Monday is rest</h4>
+  <p><strong>Tuesday</strong> is the hard session — tempo or intervals, labelled on the day. <strong>Thursday</strong> is easy. <strong>Saturday</strong> is the long run. Six training days, one rest day, exactly as you already train.</p>
+  <p><strong>If a week only allows two runs, drop Thursday.</strong> Every time — it's the one whose absence costs least. If only <em>one</em> run happens, it's <strong>Saturday</strong>, always. And if two-run weeks stack three deep or more, stop growing the long run: hold it at the last distance you hit until you're back to three. Growing a long run on a shrinking base is how people get hurt in October.</p>
+  <p><strong>On heart rate:</strong> the numbers are a guide, not a gate. If you can speak in full sentences, you're running easy — even if the watch says 165. Wrist sensors over-read badly during running, and Bengaluru humidity adds 10–20 bpm at the same pace. Don't walk just because the number climbed while your breathing stayed calm.</p>
+</div>
+
+<details class="wk" data-wk="1">
+<summary><span class="wn">Week 1</span><span class="wd">17 Aug – 23 Aug</span>
+<span class="wkm">16 km</span><span class="wph">Phase 1 · Base</span></summary>
+<div class="wbody"><p class="wnote">Week 1. Talk test rules — if you can speak in sentences, it&#x27;s easy enough.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w1d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">17 Aug</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w1d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">18 Aug</span></div>
+  <div class="dsess">S1 · Easy + strides — 5 km</div>
+  <div class="ddet">6 × 20 s strides after the run</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w1d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">19 Aug</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w1d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">20 Aug</span></div>
+  <div class="dsess">S3 · Easy run — 5 km</div>
+  <div class="ddet">7:45–8:30/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w1d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">21 Aug</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w1d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">22 Aug</span></div>
+  <div class="dsess">S5 · Long run — 6 km</div>
+  <div class="ddet">All easy, conversational · 7:45–8:30/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w1d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">23 Aug</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 1 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">60 × 8, 8, 8</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×16 × 12, 12, 12</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">BW × 10, 10, 10</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">36 / 40</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 45</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">75 × 15, 13, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">43 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">52 × 15, 13, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 20</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 50</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">50 × 8, 8, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×22 / 40</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">54 × 12, 11, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 14, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">50 × 12, 11, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="2">
+<summary><span class="wn">Week 2</span><span class="wd">24 Aug – 30 Aug</span>
+<span class="wkm">19 km</span><span class="wph">Phase 1 · Base</span></summary>
+<div class="wbody"><p class="wnote">Cadence focus: aim for 170 steps/min.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w2d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">24 Aug</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w2d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">25 Aug</span></div>
+  <div class="dsess">S1 · Easy + strides — 6 km</div>
+  <div class="ddet">6 × 20 s strides after the run</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w2d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">26 Aug</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w2d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">27 Aug</span></div>
+  <div class="dsess">S3 · Easy run — 5 km</div>
+  <div class="ddet">7:45–8:30/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w2d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">28 Aug</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w2d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">29 Aug</span></div>
+  <div class="dsess">S5 · Long run — 8 km</div>
+  <div class="ddet">All easy, conversational · 7:45–8:30/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w2d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">30 Aug</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 2 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">60 × 8, 8, 8</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×16 × 12, 12, 12</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">BW × 10, 10, 10</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">36 / 40</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 45</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">75 × 15, 13, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">43 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">52 × 15, 13, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 20</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 50</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">50 × 8, 8, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×22 / 40</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">54 × 12, 11, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 14, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">50 × 12, 11, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="3">
+<summary><span class="wn">Week 3</span><span class="wd">31 Aug – 06 Sep</span>
+<span class="wkm">22 km</span><span class="wph">Phase 1 · Base</span></summary>
+<div class="wbody"><p class="wnote">Saturday equals your current lifetime longest.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w3d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">31 Aug</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w3d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">01 Sep</span></div>
+  <div class="dsess">S1 · Easy + strides — 7 km</div>
+  <div class="ddet">8 × 20 s strides after the run</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w3d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">02 Sep</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w3d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">03 Sep</span></div>
+  <div class="dsess">S3 · Easy run — 5 km</div>
+  <div class="ddet">7:45–8:30/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w3d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">04 Sep</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w3d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">05 Sep</span></div>
+  <div class="dsess">S5 · Long run — 10 km</div>
+  <div class="ddet">All easy — longest run ever · 7:45–8:30/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w3d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">06 Sep</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 3 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">60 × 8, 8, 8</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×16 × 12, 12, 12</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">BW × 10, 10, 10</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">36 / 40</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 45</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">75 × 15, 13, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">43 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">52 × 15, 13, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 20</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 50</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">50 × 8, 8, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×22 / 40</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">54 × 12, 11, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 14, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">50 × 12, 11, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk down" data-wk="4">
+<summary><span class="wn">Week 4</span><span class="wd">07 Sep – 13 Sep</span>
+<span class="wkm">16 km</span><span class="wph">Phase 1 · Base</span></summary>
+<div class="wbody"><p class="wnote">DOWN WEEK. Resist adding anything.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w4d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">07 Sep</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w4d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">08 Sep</span></div>
+  <div class="dsess">S1 · Easy — 4 km</div>
+  <div class="ddet">No strides. Genuinely easy.</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w4d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">09 Sep</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w4d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">10 Sep</span></div>
+  <div class="dsess">S3 · Easy run — 4 km</div>
+  <div class="ddet">7:45–8:30/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w4d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">11 Sep</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w4d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">12 Sep</span></div>
+  <div class="dsess">S5 · Long run — 8 km</div>
+  <div class="ddet">All easy · 7:45–8:30/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w4d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">13 Sep</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 4 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">60 × 8, 8, 8</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×16 × 12, 12, 12</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">BW × 10, 10, 10</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">36 / 40</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 45</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">75 × 15, 13, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">43 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">52 × 15, 13, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 20</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 50</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">50 × 8, 8, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×22 / 40</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">54 × 12, 11, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 14, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">50 × 12, 11, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="5">
+<summary><span class="wn">Week 5</span><span class="wd">14 Sep – 20 Sep</span>
+<span class="wkm">25 km</span><span class="wph">Phase 1 · Base</span></summary>
+<div class="wbody"><p class="wnote">CHECKPOINT: 5k target ≤ 27:45.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w5d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">14 Sep</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w5d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">15 Sep</span></div>
+  <div class="dsess">S1 · 5k TIME TRIAL — 8 km</div>
+  <div class="ddet">3 km w-up, 5k hard, 2 km c-down</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w5d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">16 Sep</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w5d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">17 Sep</span></div>
+  <div class="dsess">S3 · Easy run — 5 km</div>
+  <div class="ddet">7:45–8:30/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w5d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">18 Sep</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w5d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">19 Sep</span></div>
+  <div class="dsess">S5 · Long run — 12 km</div>
+  <div class="ddet">All easy · 7:45–8:30/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w5d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">20 Sep</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>1900 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 5 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">65 × 8, 8, 7</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×20 × 12, 11, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×8 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">39 / 45</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 50</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">45 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 15, 14</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">55 × 14, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 52</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">52.5 × 8, 7, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×24 / 45</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 15, 14, 13</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">55 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="6">
+<summary><span class="wn">Week 6</span><span class="wd">21 Sep – 27 Sep</span>
+<span class="wkm">28 km</span><span class="wph">Phase 2 · Build</span></summary>
+<div class="wbody"><p class="wnote">First tempo session. HR 166–176 in the reps only.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w6d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">21 Sep</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w6d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">22 Sep</span></div>
+  <div class="dsess">S1 · TEMPO — 9 km</div>
+  <div class="ddet">3 × 1 km @ 6:20/km, 90 s jog between</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w6d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">23 Sep</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w6d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">24 Sep</span></div>
+  <div class="dsess">S3 · Easy run — 7 km</div>
+  <div class="ddet">7:20–8:00/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w6d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">25 Sep</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w6d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">26 Sep</span></div>
+  <div class="dsess">S5 · Long run — 12 km</div>
+  <div class="ddet">All easy · 7:20–8:00/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w6d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">27 Sep</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 6 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">65 × 8, 8, 7</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×20 × 12, 11, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×8 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">39 / 45</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 50</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">45 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 15, 14</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">55 × 14, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 52</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">52.5 × 8, 7, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×24 / 45</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 15, 14, 13</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">55 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="7">
+<summary><span class="wn">Week 7</span><span class="wd">28 Sep – 04 Oct</span>
+<span class="wkm">31 km</span><span class="wph">Phase 2 · Build</span></summary>
+<div class="wbody"><p class="wnote">Long run now long enough to need fuel.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w7d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">28 Sep</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w7d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">29 Sep</span></div>
+  <div class="dsess">S1 · TEMPO — 10 km</div>
+  <div class="ddet">4 × 1 km @ 6:15/km, 90 s jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w7d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">30 Sep</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w7d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">01 Oct</span></div>
+  <div class="dsess">S3 · Easy run — 7 km</div>
+  <div class="ddet">7:20–8:00/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w7d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">02 Oct</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w7d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">03 Oct</span></div>
+  <div class="dsess">S5 · Long run — 14 km</div>
+  <div class="ddet">Practise gels — 30 g carbs at 40 min · 7:20–8:00/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w7d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">04 Oct</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 7 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">65 × 8, 8, 7</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×20 × 12, 11, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×8 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">39 / 45</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 50</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">45 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 15, 14</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">55 × 14, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 52</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">52.5 × 8, 7, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×24 / 45</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 15, 14, 13</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">55 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk down" data-wk="8">
+<summary><span class="wn">Week 8</span><span class="wd">05 Oct – 11 Oct</span>
+<span class="wkm">23 km</span><span class="wph">Phase 2 · Build</span></summary>
+<div class="wbody"><p class="wnote">DOWN WEEK. Your old 400s session, back.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w8d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">05 Oct</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w8d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">06 Oct</span></div>
+  <div class="dsess">S1 · INTERVALS — 8 km</div>
+  <div class="ddet">400 m × 6 @ 4:30/km, 200 m jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w8d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">07 Oct</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w8d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">08 Oct</span></div>
+  <div class="dsess">S3 · Easy run — 6 km</div>
+  <div class="ddet">7:20–8:00/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w8d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">09 Oct</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w8d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">10 Oct</span></div>
+  <div class="dsess">S5 · Long run — 9 km</div>
+  <div class="ddet">All easy · 7:20–8:00/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w8d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">11 Oct</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 8 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">65 × 8, 8, 7</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×20 × 12, 11, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×8 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">39 / 45</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">BW / 50</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / light</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">45 × 10, 9, 8, 8</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">7.5 × 15, 15, 14</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">55 × 14, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">30 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">25 / 52</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW × max</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">52.5 × 8, 7, 7, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×24 / 45</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">60 × 15, 14, 13</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">55 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="9">
+<summary><span class="wn">Week 9</span><span class="wd">12 Oct – 18 Oct</span>
+<span class="wkm">34 km</span><span class="wph">Phase 2 · Build</span></summary>
+<div class="wbody"><p class="wnote">Fuelling on every long run from here.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w9d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">12 Oct</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w9d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">13 Oct</span></div>
+  <div class="dsess">S1 · TEMPO — 11 km</div>
+  <div class="ddet">5 × 1 km @ 6:10/km, 90 s jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w9d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">14 Oct</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w9d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">15 Oct</span></div>
+  <div class="dsess">S3 · Easy run — 8 km</div>
+  <div class="ddet">7:20–8:00/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w9d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">16 Oct</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w9d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">17 Oct</span></div>
+  <div class="dsess">S5 · Long run — 15 km</div>
+  <div class="ddet">Gels mandatory — 30–60 g carbs/hr · 7:20–8:00/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w9d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">18 Oct</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 9 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">70 × 7, 7, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×22 × 11, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×10 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">41 / 50</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 52</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 15, 14, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">47 × 9, 8, 8, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 13, 12, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">57 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 55</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 8, 7, 6, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×26 / 50</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">59 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 13, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="10">
+<summary><span class="wn">Week 10</span><span class="wd">19 Oct – 25 Oct</span>
+<span class="wkm">37 km</span><span class="wph">Phase 2 · Build</span></summary>
+<div class="wbody"><p class="wnote">Exact shoes, socks, gels, bottle. No surprises in December.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w10d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">19 Oct</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w10d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">20 Oct</span></div>
+  <div class="dsess">S1 · TEMPO — 12 km</div>
+  <div class="ddet">2 × 3 km @ 6:20/km, 3 min jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w10d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">21 Oct</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w10d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">22 Oct</span></div>
+  <div class="dsess">S3 · Easy run — 9 km</div>
+  <div class="ddet">7:20–8:00/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w10d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">23 Oct</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w10d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">24 Oct</span></div>
+  <div class="dsess">S5 · Long run — 16 km</div>
+  <div class="ddet">Full race kit — dress rehearsal · 7:20–8:00/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w10d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">25 Oct</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 10 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">70 × 7, 7, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×22 × 11, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×10 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">41 / 50</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 52</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 15, 14, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">47 × 9, 8, 8, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 13, 12, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">57 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 55</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 8, 7, 6, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×26 / 50</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">59 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 13, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk down" data-wk="11">
+<summary><span class="wn">Week 11</span><span class="wd">26 Oct – 01 Nov</span>
+<span class="wkm">27 km</span><span class="wph">Phase 2 · Build</span></summary>
+<div class="wbody"><p class="wnote">CHECKPOINT: 10k ≤ 59:00 sets the race goal.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w11d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">26 Oct</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w11d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">27 Oct</span></div>
+  <div class="dsess">S1 · 10k TIME TRIAL — 9 km</div>
+  <div class="ddet">2 km w-up, 10k hard, 2 km c-down</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w11d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">28 Oct</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w11d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">29 Oct</span></div>
+  <div class="dsess">S3 · Easy run — 8 km</div>
+  <div class="ddet">7:20–8:00/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w11d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">30 Oct</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w11d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">31 Oct</span></div>
+  <div class="dsess">S5 · Long run — 10 km</div>
+  <div class="ddet">All easy · 7:20–8:00/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w11d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">01 Nov</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2050 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 11 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">70 × 7, 7, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×22 × 11, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×10 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">41 / 50</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 52</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 15, 14, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">47 × 9, 8, 8, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 13, 12, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">57 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 55</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 8, 7, 6, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×26 / 50</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">59 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 13, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="12">
+<summary><span class="wn">Week 12</span><span class="wd">02 Nov – 08 Nov</span>
+<span class="wkm">39 km</span><span class="wph">Phase 3 · Peak</span></summary>
+<div class="wbody"><p class="wnote">Highest-load block. Sleep is non-negotiable now.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w12d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">02 Nov</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w12d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">03 Nov</span></div>
+  <div class="dsess">S1 · TEMPO — 12 km</div>
+  <div class="ddet">3 × 3 km @ goal HM pace (6:10), 3 min jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w12d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">04 Nov</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w12d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">05 Nov</span></div>
+  <div class="dsess">S3 · Easy run — 10 km</div>
+  <div class="ddet">7:00–7:40/km · HR ≤ 158 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w12d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">06 Nov</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w12d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">07 Nov</span></div>
+  <div class="dsess">S5 · Long run — 17 km</div>
+  <div class="ddet">Last 3 km at HM pace · 7:00–7:40/km · HR ≤ 158</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w12d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">08 Nov</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 12 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">70 × 7, 7, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×22 × 11, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×10 × 10, 9, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">41 / 50</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 52</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">80 × 15, 14, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">47 × 9, 8, 8, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 13, 12, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">57 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 22.5</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 55</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 8, 7, 6, 6</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×26 / 50</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">59 × 11, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 13, 12, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">57 × 11, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="13">
+<summary><span class="wn">Week 13</span><span class="wd">09 Nov – 15 Nov</span>
+<span class="wkm">42 km</span><span class="wph">Phase 3 · Peak</span></summary>
+<div class="wbody"><p class="wnote">Biggest week. If anything hurts, cut Thursday first.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w13d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">09 Nov</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w13d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">10 Nov</span></div>
+  <div class="dsess">S1 · INTERVALS — 13 km</div>
+  <div class="ddet">400 m × 8 @ 4:20/km, 200 m jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w13d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">11 Nov</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w13d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">12 Nov</span></div>
+  <div class="dsess">S3 · Easy run — 10 km</div>
+  <div class="ddet">7:00–7:40/km · HR ≤ 158 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w13d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">13 Nov</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w13d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">14 Nov</span></div>
+  <div class="dsess">S5 · Long run — 19 km</div>
+  <div class="ddet">Peak long run — the confidence builder · 7:00–7:40/km · HR ≤ 158</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w13d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">15 Nov</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 13 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">75 × 6, 6, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×24 × 10, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×12 × 9, 8, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">43 / 55</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 55</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">85 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">50 × 8, 8, 7, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">59 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 25</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 57</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 7.5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 9, 8, 7, 7</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×28 / 52</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">61 × 10, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 14, 13, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">60 × 10, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk down" data-wk="14">
+<summary><span class="wn">Week 14</span><span class="wd">16 Nov – 22 Nov</span>
+<span class="wkm">31 km</span><span class="wph">Phase 3 · Peak</span></summary>
+<div class="wbody"><p class="wnote">DOWN WEEK. Should feel fresh by Sunday.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w14d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">16 Nov</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w14d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">17 Nov</span></div>
+  <div class="dsess">S1 · TEMPO — 10 km</div>
+  <div class="ddet">2 × 2 km @ HM pace, 3 min jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w14d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">18 Nov</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w14d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">19 Nov</span></div>
+  <div class="dsess">S3 · Easy run — 9 km</div>
+  <div class="ddet">7:00–7:40/km · HR ≤ 158 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w14d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">20 Nov</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w14d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">21 Nov</span></div>
+  <div class="dsess">S5 · Long run — 12 km</div>
+  <div class="ddet">All easy · 7:00–7:40/km · HR ≤ 158</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w14d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">22 Nov</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 14 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">75 × 6, 6, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×24 × 10, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×12 × 9, 8, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">43 / 55</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 55</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">85 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">50 × 8, 8, 7, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">59 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 25</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 57</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 7.5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 9, 8, 7, 7</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×28 / 52</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">61 × 10, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 14, 13, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">60 × 10, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="15">
+<summary><span class="wn">Week 15</span><span class="wd">23 Nov – 29 Nov</span>
+<span class="wkm">39 km</span><span class="wph">Phase 3 · Peak</span></summary>
+<div class="wbody"><p class="wnote">Final confidence session. Nail this and you&#x27;re ready.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w15d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">23 Nov</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w15d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">24 Nov</span></div>
+  <div class="dsess">S1 · Easy + strides — 12 km</div>
+  <div class="ddet">6 × 20 s strides</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w15d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">25 Nov</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w15d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">26 Nov</span></div>
+  <div class="dsess">S3 · Easy run — 9 km</div>
+  <div class="ddet">7:00–7:40/km · HR ≤ 158 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w15d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">27 Nov</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w15d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">28 Nov</span></div>
+  <div class="dsess">S5 · Long run — 18 km</div>
+  <div class="ddet">18 km with 12 km @ HM pace · 7:00–7:40/km · HR ≤ 158</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w15d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">29 Nov</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 15 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">75 × 6, 6, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×24 × 10, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×12 × 9, 8, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">43 / 55</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 55</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">85 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">50 × 8, 8, 7, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">59 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 25</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 57</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 7.5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 9, 8, 7, 7</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×28 / 52</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">61 × 10, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 14, 13, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">60 × 10, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk" data-wk="16">
+<summary><span class="wn">Week 16</span><span class="wd">30 Nov – 06 Dec</span>
+<span class="wkm">28 km</span><span class="wph">Phase 4 · Taper</span></summary>
+<div class="wbody"><p class="wnote">TAPER. Volume −30%, intensity stays. You&#x27;ll feel restless.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w16d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">30 Nov</span></div>
+  <div class="dsess">REST — floats to suit your week</div>
+  <div class="ddet">Full rest, walking, or pickleball</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w16d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">01 Dec</span></div>
+  <div class="dsess">S1 · TEMPO — 11 km</div>
+  <div class="ddet">6 × 800 m @ HM pace, 90 s jog</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w16d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">02 Dec</span></div>
+  <div class="dsess">S2 · Legs + Core</div>
+  <div class="ddet">~60 min · the unmissable one</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w16d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">03 Dec</span></div>
+  <div class="dsess">S3 · Easy run — 7 km</div>
+  <div class="ddet">6:50–7:30/km · HR ≤ 155 · talk test rules</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w16d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">04 Dec</span></div>
+  <div class="dsess">S4 · Shoulders + Arms</div>
+  <div class="ddet">~45 min</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day hard">
+<label class="chk"><input type="checkbox" data-id="w16d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">05 Dec</span></div>
+  <div class="dsess">S5 · Long run — 10 km</div>
+  <div class="ddet">Easy and relaxed · 6:50–7:30/km · HR ≤ 155</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div><div class="day lift">
+<label class="chk"><input type="checkbox" data-id="w16d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">06 Dec</span></div>
+  <div class="dsess">S6 · Chest + Back</div>
+  <div class="ddet">~60 min · your heavy day</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2200 kcal · ~154 g protein</strong></span></div>
+</div></div>
+<h4 class="lh">Week 16 lifting — every set</h4><div class="lifts"><div class="ltbl"><h5>Legs + Core</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Barbell Back Squat</td><td class="k">3 × 6–8</td><td class="k">75 × 6, 6, 6</td><td class="cue">w-up: bar × 10, 40 × 8, 50 × 5</td></tr><tr><td class="n">Dumbbell RDL</td><td class="k">3 × 10–12</td><td class="k">2×24 × 10, 10, 10</td><td class="cue">moderate — never grindy</td></tr><tr><td class="n">Bulgarian Split Squat</td><td class="k">3 × 8–10/leg</td><td class="k">2×12 × 9, 8, 8</td><td class="cue">rear foot on a bench</td></tr><tr><td class="n">Seated Leg Curl ⊃ Standing Calf</td><td class="k">3 × 10–12 / 3 × 10</td><td class="k">43 / 55</td><td class="cue">superset — no rest between the pair</td></tr><tr><td class="n">45° Back Extension ⊃ Seated Calf</td><td class="k">2 × 15 / 2 × 15</td><td class="k">+5 kg / 55</td><td class="cue">the hyperextension you already do</td></tr><tr><td class="n">Cable Crunch</td><td class="k">3 × 12–15</td><td class="k">85 × 14, 12, 12</td><td class="cue">slow eccentric, ribs to hips</td></tr><tr><td class="n">Hanging Leg Raise ⊃ Pallof Press</td><td class="k">3 × 8–12 / 3 × 10 ea</td><td class="k">BW / +2.5</td><td class="cue">Pallof = anti-rotation hold</td></tr><tr><td class="n">Side Bend (hyperext. machine)</td><td class="k">2 × 15/side</td><td class="k">bodyweight</td><td class="cue">NEVER add load — see note</td></tr></tbody></table></div><div class="ltbl"><h5>Shoulders + Arms</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Seated Shoulder Press</td><td class="k">4 × 8–10</td><td class="k">50 × 8, 8, 7, 7</td><td class="cue">w-up: 25 × 12, 36 × 8</td></tr><tr><td class="n">Cable Lateral Raise (single arm)</td><td class="k">3 × 12–15</td><td class="k">10 × 15, 13, 12</td><td class="cue">slow, no swinging</td></tr><tr><td class="n">Rear Delt Fly (Machine)</td><td class="k">3 × 12–15</td><td class="k">59 × 13, 12, 12</td><td class="cue"></td></tr><tr><td class="n">Hammer Curl ⊃ Overhead Tri Ext</td><td class="k">3 × 8–10 / 3 × 10–12</td><td class="k">32.5 / 25</td><td class="cue">superset</td></tr><tr><td class="n">Incline DB Curl ⊃ Rope Pushdown</td><td class="k">2 × 10–12 / 2 × 12–15</td><td class="k">27.5 / 57</td><td class="cue">superset</td></tr></tbody></table></div><div class="ltbl"><h5>Chest + Back</h5><table class="lift"><thead><tr><th>Exercise</th><th>Sets × reps</th><th>Weight × reps</th><th></th></tr></thead><tbody><tr><td class="n">Pull-Up</td><td class="k">4 × 5–8</td><td class="k">BW, add 7.5 kg at 8</td><td class="cue">FIRST — fully fresh, not supersetted</td></tr><tr><td class="n">Incline DB Press</td><td class="k">4 × 6–10</td><td class="k">55 × 9, 8, 7, 7</td><td class="cue">w-up: 2×20 × 10</td></tr><tr><td class="n">Flat DB Press ⊃ Single-Arm Machine Row</td><td class="k">3 × 8–12 / 3 × 8–10</td><td class="k">2×28 / 52</td><td class="cue">superset — your machine row, not barbell</td></tr><tr><td class="n">Lat Pulldown</td><td class="k">3 × 10–12</td><td class="k">61 × 10, 10, 10</td><td class="cue"></td></tr><tr><td class="n">Cable Fly Crossovers</td><td class="k">3 × 12–15</td><td class="k">65 × 14, 13, 12</td><td class="cue">the only fly variation</td></tr><tr><td class="n">Seated Cable Row</td><td class="k">3 × 10–12</td><td class="k">60 × 10, 10, 10</td><td class="cue">squeeze, don&#x27;t heave</td></tr></tbody></table></div></div></div></details>
+<details class="wk race-wk" data-wk="17">
+<summary><span class="wn">Week 17</span><span class="wd">07 Dec – 13 Dec</span>
+<span class="wkm">RACE</span><span class="wph">Phase 4 · Taper</span></summary>
+<div class="wbody"><p class="wnote">No lifting this week. Nothing you do now makes you fitter — it can only make you tired. Meals from Thursday shift to high-carb, low-fibre.</p>
+<div class="days"><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w17d0"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Monday</span><span class="dd">07 Dec</span></div>
+  <div class="dsess">Rest</div>
+  <div class="ddet">Feet up.</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken salad · 4 slices brown bread</span><span><em>D</em> Shirataki + chicken · 55 g dry basmati side</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w17d1"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Tuesday</span><span class="dd">08 Dec</span></div>
+  <div class="dsess">Easy run — 5 km</div>
+  <div class="ddet">6:50–7:30/km, relaxed</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette (onion/tomato/capsicum) + 1 slice toast</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken kebab · 3 roti (90 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w17d2"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Wednesday</span><span class="dd">09 Dec</span></div>
+  <div class="dsess">Rest</div>
+  <div class="ddet">Nothing. Legs stay fresh.</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 40 g oats + banana</span><span><em>L</em> Fried rice + chicken · 55 g dry basmati · 1 egg</span><span><em>D</em> Chicken wrap · 2 tortillas</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w17d3"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Thursday</span><span class="dd">10 Dec</span></div>
+  <div class="dsess">Easy run — 4 km + 4 × 20 s strides</div>
+  <div class="ddet">Keep the legs awake</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + banana</span><span><em>L</em> Chicken sandwich (tofu 230 g) · 4 slices brown bread</span><span><em>D</em> Pasta + chicken · 65 g dry pasta</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div><div class="day rest">
+<label class="chk"><input type="checkbox" data-id="w17d4"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Friday</span><span class="dd">11 Dec</span></div>
+  <div class="dsess">Rest</div>
+  <div class="ddet">Carb load begins — 400 g carbs</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3-egg omelette + 1 slice toast + banana</span><span><em>L</em> Rice chicken bowl · 60 g dry basmati</span><span><em>D</em> Chicken pizza · 2 roti base (60 g atta)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div><div class="day run">
+<label class="chk"><input type="checkbox" data-id="w17d5"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Saturday</span><span class="dd">12 Dec</span></div>
+  <div class="dsess">Shakeout — 3 km very easy</div>
+  <div class="ddet">Carb load 570 g, low fibre. Lay out kit.</div>
+</div>
+<div class="dmeals"><span><em>B</em> Oats 40 g + 50 g skyr + banana</span><span><em>L</em> Chicken tacos × 5 corn tortillas</span><span><em>D</em> EAT OUT — post-long-run meal</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div><div class="day race">
+<label class="chk"><input type="checkbox" data-id="w17d6"><span></span></label>
+<div class="dmain">
+  <div class="dhead"><span class="dn">Sunday</span><span class="dd">13 Dec</span></div>
+  <div class="dsess">RACE — 21.1 km</div>
+  <div class="ddet">First 3 km at 6:20/km. No exceptions.</div>
+</div>
+<div class="dmeals"><span><em>B</em> 3 eggs + 1 slice brown bread + fruit</span><span><em>L</em> Chicken burger × 2 (2 buns)</span><span><em>D</em> Rice paper rolls × 5 (tofu 230 g)</span>
+<span class="dkc">+ 1 scoop yeast protein · 50 g skyr · nuts · 2 fruit &nbsp;·&nbsp; eggs optional &nbsp;·&nbsp; <strong>2400 kcal · ~154 g protein</strong></span></div>
+</div></div></div></details>
+
+<div class="note-box">
+  <h4>How to read the loads</h4>
+  <p>Target loads step up every four weeks, but they're targets, not instructions. The real rule governs: <strong>when you hit the top of the rep range on every set, add 2.5 kg next session and drop back to the bottom of the range.</strong> If the table says 70 kg and you're grinding at 65, stay at 65 — the table is behind you, not ahead of you.</p>
+  <p>Log RPE on every working set. Target 7–9 on compounds, 8–10 on isolation. You have 1,424 logged sets and zero RPE entries, and that's the number that tells us whether the loads above are right.</p>
+  <p><strong>The one exception: the side bend.</strong> Bodyweight, always, forever. Loaded lateral flexion is the one movement that can thicken the waist you're trying to narrow — and at 13% body fat your obliques will show from the Pallof press and the carry work anyway. Everything else on this page gets heavier over time; that one doesn't.</p>
+</div>
+
+<footer>
+  17 weeks · 119 days · 3 lifts + 3 runs + 1 rest day per week · 1,900 kcal rising to 2,200 · 145 g protein throughout · Race: Sunday 13 December 2026
+</footer>
+</div>
+
+<script>
+(function(){
+  var KEY="anupam-hm-2026";
+  var store=null;
+  try{ localStorage.setItem("__t","1"); localStorage.removeItem("__t"); store=localStorage; }catch(e){ store=null; }
+
+  var boxes=[].slice.call(document.querySelectorAll('.chk input'));
+  var prog=document.getElementById('prog');
+
+  function load(){
+    if(!store) return {};
+    try{ return JSON.parse(store.getItem(KEY)||"{}"); }catch(e){ return {}; }
+  }
+  function save(s){ if(store){ try{ store.setItem(KEY,JSON.stringify(s)); }catch(e){} } }
+  function count(){
+    var n=boxes.filter(function(b){return b.checked;}).length;
+    prog.textContent=n+" / "+boxes.length+" days"+(store?"":" · ticks not saved in this browser");
+  }
+
+  var state=load();
+  boxes.forEach(function(b){
+    if(state[b.dataset.id]) b.checked=true;
+    b.addEventListener('change',function(){
+      var s=load();
+      if(b.checked) s[b.dataset.id]=1; else delete s[b.dataset.id];
+      save(s); count();
+    });
+  });
+  count();
+
+  var wks=[].slice.call(document.querySelectorAll('details.wk'));
+  document.getElementById('expand').onclick=function(){ wks.forEach(function(d){d.open=true;}); };
+  document.getElementById('collapse').onclick=function(){ wks.forEach(function(d){d.open=false;}); };
+  document.getElementById('reset').onclick=function(){
+    if(!confirm("Clear every tick?")) return;
+    boxes.forEach(function(b){b.checked=false;}); save({}); count();
+  };
+
+  // which week is it now
+  var start=new Date(2026,7,17);
+  var wk=Math.floor((Date.now()-start.getTime())/(7*864e5))+1;
+  if(wk<1) wk=1; if(wk>17) wk=17;
+  var cur=document.querySelector('details.wk[data-wk="'+wk+'"]');
+  function jump(){
+    if(!cur) return;
+    cur.open=true;
+    cur.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.getElementById('today').onclick=jump;
+  if(cur) cur.open=true;
+})();
+</script>
+
+</body>
+</html>
