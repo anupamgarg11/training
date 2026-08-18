@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progress · Anupam</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E📈%3C/text%3E%3C/svg%3E">
+<style>
+ :root{--ground:#F6F7F5;--surface:#FFF;--surface-2:#EFF1EE;--ink:#15181A;--ink-2:#4A5350;--ink-3:#7C8683;
+  --rule:#DCE1DE;--rule-2:#C7CFCB;--easy:#2E7D6E;--easy-bg:#E4F0ED;--hard:#C2542B;--hard-bg:#F8E8E1;
+  --iron:#3F5487;--iron-bg:#E5EAF3;
+  --fd:ui-sans-serif,-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+  --fb:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --fm:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;}
+ @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0F1214;--surface:#161A1C;--surface-2:#1D2224;--ink:#E9EDEA;--ink-2:#A3ADAA;--ink-3:#78827F;
+  --rule:#262C2E;--rule-2:#333A3C;--easy:#4FB49F;--easy-bg:#132A26;--hard:#E8794A;--hard-bg:#2E1913;
+  --iron:#7C97D4;--iron-bg:#161D2C;}}
+ :root[data-theme="dark"]{--ground:#0F1214;--surface:#161A1C;--surface-2:#1D2224;--ink:#E9EDEA;
+  --ink-2:#A3ADAA;--ink-3:#78827F;--rule:#262C2E;--rule-2:#333A3C;--easy:#4FB49F;--easy-bg:#132A26;
+  --hard:#E8794A;--hard-bg:#2E1913;--iron:#7C97D4;--iron-bg:#161D2C;}
+ *{box-sizing:border-box}
+ body{background:var(--ground);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.55;margin:0;padding:0 20px 90px;-webkit-font-smoothing:antialiased}
+ .wrap{max-width:1000px;margin:0 auto}
+ h1,h2,.label,table,.n,.k{font-family:var(--fd)}
+ h1{font-size:clamp(2rem,5.5vw,3.1rem);line-height:1.03;letter-spacing:-.033em;font-weight:700;margin:0}
+ h2{font-size:1.05rem;letter-spacing:-.012em;font-weight:700;margin:0 0 4px}
+ .label{font-family:var(--fm);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+ header{padding:56px 0 0}.rule-heavy{height:3px;background:var(--ink);margin:20px 0 0}
+ .sitenav{position:sticky;top:0;z-index:50;display:flex;gap:2px;padding:8px 0;background:var(--ground);
+   border-bottom:1px solid var(--rule-2);font-family:var(--fd);flex-wrap:wrap;margin-bottom:4px}
+ .sitenav a{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-3);
+   text-decoration:none;padding:6px 12px;border-radius:2px}
+ .sitenav a:hover{color:var(--ink);background:var(--surface-2)}
+ .sitenav a.on{color:var(--ink);background:var(--surface-2)}
+ .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);
+   border:1px solid var(--rule);margin-top:26px}
+ .t{background:var(--surface);padding:16px 18px}
+ .t .n{font-family:var(--fm);font-size:1.85rem;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+ .t .n .s{font-size:.9rem;color:var(--ink-3)}
+ .n.hard{color:var(--hard)}.n.easy{color:var(--easy)}.n.iron{color:var(--iron)}
+ .t .k{font-family:var(--fm);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+ .t .d{font-size:.82rem;color:var(--ink-2);margin-top:5px;font-family:var(--fb)}
+ section{padding-top:40px}
+ .sec-head{border-top:1px solid var(--rule-2);padding-top:12px;margin-bottom:16px}
+ .card{background:var(--surface);border:1px solid var(--rule);padding:20px}
+ .spark{width:100%;height:120px;display:block}
+ .spark .sl{fill:none;stroke:var(--iron);stroke-width:2;vector-effect:non-scaling-stroke}
+ .spark .sa{fill:var(--iron-bg);stroke:none}
+ .spark circle{fill:var(--iron)}
+ .empty{color:var(--ink-3);font-size:.9rem;margin:0}
+ table{border-collapse:collapse;width:100%;font-size:.82rem;font-variant-numeric:tabular-nums}
+ th{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+   font-weight:500;text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule-2);background:var(--surface-2);white-space:nowrap}
+ td{padding:8px 10px;border-bottom:1px solid var(--rule);color:var(--ink-2);vertical-align:top}
+ tbody tr:last-child td{border-bottom:none}
+ td.dt{font-family:var(--fm);color:var(--ink);font-weight:600;white-space:nowrap}
+ td.c{text-align:center;font-family:var(--fm)}
+ td.nt{font-size:.76rem;color:var(--ink-3)}
+ td.l{color:var(--ink);font-weight:600;width:110px}
+ td.v{font-family:var(--fm);font-weight:600;width:90px}
+ td.t2{font-family:var(--fm);color:var(--ink-3);width:90px}
+ td.bar{padding-right:14px}
+ td.bar span{display:block;height:8px;border-radius:2px;background:var(--easy);min-width:2px}
+ td.bar span.b{background:var(--hard)}
+ .g{color:var(--easy)}.b{color:var(--hard)}
+ .tw{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--hard);padding:18px 20px}
+ .tw ul{margin:8px 0 0;padding-left:18px;font-size:.92rem;color:var(--ink-2)}
+ .tw li{margin-bottom:5px}.tw li.ok{color:var(--easy);font-weight:600;list-style:none;margin-left:-18px}
+ .tw.clear{border-left-color:var(--easy)}
+ .tw2{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);margin-top:16px}
+ footer{margin-top:48px;padding-top:16px;border-top:3px solid var(--ink);font-family:var(--fm);
+   font-size:.68rem;letter-spacing:.05em;color:var(--ink-3)}
+ @media(max-width:640px){body{padding:0 14px 60px}header{padding-top:38px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitenav">
+ <a href="index.html">Home</a><a href="calendar.html">119 Days</a><a href="progress.html" class="on">Progress</a><a href="kitchen.html">Kitchen</a><a href="plan.html">The Plan</a>
+</nav>
+<header>
+  <div class="label">Live progress &middot; updated <!--STAMP--></div>
+  <div class="rule-heavy"></div>
+  <h1 style="margin-top:20px;">Where you actually are</h1>
+</header>
+
+<div class="tiles"><!--TILES--></div>
+
+<section>
+  <div class="sec-head"><h2>Weight — the only feedback loop that matters</h2></div>
+  <div class="card">
+    <!--SPARK-->
+    <p style="font-size:.85rem;color:var(--ink-3);margin-top:10px;">
+      Target 64.5 kg by race day &middot; <!--GOAL--> kg to go &middot; 0.4 kg/week, no faster.
+      Daily swings are water — only the 7-day average counts.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Last 7 days vs target</h2></div>
+  <div class="tw2"><table><tbody><!--BARS--></tbody></table></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Tripwires</h2></div>
+  <div class="tw"><strong>If any fires: add 250 kcal of carbs, hold protein, reassess in two weeks.</strong>
+  <ul><!--TRIPS--></ul></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Recent days</h2></div>
+  <div class="tw2"><table>
+   <thead><tr><th>Day</th><th>Session</th><th>Wt</th><th>Sleep</th><th>Km</th><th>HR</th><th>Prot</th><th>kcal</th><th>Notes</th></tr></thead>
+   <tbody><!--ROWS--></tbody></table></div>
+</section>
+
+<footer>Generated from training/log.csv &middot; Race: Sunday 13 December 2026</footer>
+</div>
+</body>
+</html>
