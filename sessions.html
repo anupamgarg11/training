@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sessions · Anupam</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🏋️%3C/text%3E%3C/svg%3E">
+<style>
+ :root{--ground:#F6F7F5;--surface:#FFF;--surface-2:#EFF1EE;--ink:#15181A;--ink-2:#4A5350;--ink-3:#7C8683;
+  --rule:#DCE1DE;--rule-2:#C7CFCB;--easy:#2E7D6E;--easy-bg:#E4F0ED;--hard:#C2542B;--hard-bg:#F8E8E1;
+  --iron:#3F5487;--iron-bg:#E5EAF3;
+  --fd:ui-sans-serif,-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+  --fb:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --fm:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;}
+ @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0F1214;--surface:#161A1C;--surface-2:#1D2224;--ink:#E9EDEA;--ink-2:#A3ADAA;--ink-3:#78827F;
+  --rule:#262C2E;--rule-2:#333A3C;--easy:#4FB49F;--easy-bg:#132A26;--hard:#E8794A;--hard-bg:#2E1913;
+  --iron:#7C97D4;--iron-bg:#161D2C;}}
+ :root[data-theme="dark"]{--ground:#0F1214;--surface:#161A1C;--surface-2:#1D2224;--ink:#E9EDEA;
+  --ink-2:#A3ADAA;--ink-3:#78827F;--rule:#262C2E;--rule-2:#333A3C;--easy:#4FB49F;--easy-bg:#132A26;
+  --hard:#E8794A;--hard-bg:#2E1913;--iron:#7C97D4;--iron-bg:#161D2C;}
+ *{box-sizing:border-box}
+ body{background:var(--ground);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.5;margin:0;padding:0 18px 80px;-webkit-font-smoothing:antialiased}
+ .wrap{max-width:1000px;margin:0 auto}
+ h1,h2,h4,table,.label{font-family:var(--fd)}
+ h1{font-size:clamp(2rem,5.5vw,3rem);line-height:1.03;letter-spacing:-.033em;font-weight:700;margin:0}
+ h2{font-size:1.05rem;letter-spacing:-.012em;font-weight:700;margin:0}
+ .label{font-family:var(--fm);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+ header{padding:52px 0 0}.rule-heavy{height:3px;background:var(--ink);margin:18px 0 0}
+ .sitenav{position:sticky;top:0;z-index:50;display:flex;gap:2px;padding:8px 0;background:var(--ground);
+   border-bottom:1px solid var(--rule-2);font-family:var(--fd);flex-wrap:wrap}
+ .sitenav a{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-3);
+   text-decoration:none;padding:6px 11px;border-radius:2px}
+ .sitenav a:hover,.sitenav a.on{color:var(--ink);background:var(--surface-2)}
+ section{padding-top:32px}
+ .sh{display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--rule-2);padding-top:12px;margin-bottom:12px}
+ .cnt{font-family:var(--fm);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-left:auto}
+ .tw{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
+ table{border-collapse:collapse;width:100%;font-size:.84rem}
+ th{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+   font-weight:500;text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule-2);background:var(--surface-2);white-space:nowrap}
+ td{padding:9px 10px;border-bottom:1px solid var(--rule);color:var(--ink-2);vertical-align:top}
+ tbody tr:last-child td{border-bottom:none}
+ tr.aux{background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+ td.pr{font-family:var(--fm);font-size:.56rem;letter-spacing:.09em;font-weight:600;width:42px;white-space:nowrap}
+ tr.core td.pr{color:var(--hard)} tr.aux td.pr{color:var(--ink-3)}
+ td.ex{color:var(--ink);font-weight:600;font-family:var(--fd);min-width:190px}
+ td.sr{font-family:var(--fm);white-space:nowrap;font-size:.78rem}
+ td.ld{font-family:var(--fm);color:var(--ink);font-weight:600;white-space:nowrap;font-size:.8rem}
+ td.cu{font-size:.78rem;color:var(--ink-3);min-width:180px}
+ .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:26px}
+ .rl{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--iron);padding:15px 17px}
+ .rl h4{margin:0 0 5px;font-size:.86rem}
+ .rl p{margin:0;font-size:.84rem;color:var(--ink-2)}
+ footer{margin-top:44px;padding-top:16px;border-top:3px solid var(--ink);font-family:var(--fm);font-size:.68rem;letter-spacing:.05em;color:var(--ink-3)}
+ @media(max-width:640px){body{padding:0 13px 60px}header{padding-top:36px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitenav">
+ <a href="index.html">Home</a><a href="calendar.html">119 Days</a><a href="sessions.html" class="on">Sessions</a><a href="progress.html">Progress</a><a href="kitchen.html">Kitchen</a><a href="plan.html">The Plan</a>
+</nav>
+<header>
+  <div class="label">Current loads &middot; updated 26 Aug 2026</div>
+  <div class="rule-heavy"></div>
+  <h1 style="margin-top:18px;">The three sessions</h1>
+</header>
+<section><div class="sh"><h2>S2 · Legs + Core</h2><span class="cnt">6 core &middot; 4 aux</span></div><div class="tw"><table><thead><tr><th></th><th>Exercise</th><th>Sets &times; reps</th><th>Load</th><th>Note</th></tr></thead><tbody><tr class="core"><td class="pr">CORE</td><td class="ex">Barbell Back Squat</td><td class="sr">3 x 6-8</td><td class="ld">60 kg — do all THREE sets</td><td class="cu">w-up: bar x10, 40x8, 50x5. Stop if the knee feels off.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Dumbbell RDL</td><td class="sr">3 x 10-12</td><td class="ld">35 kg TOTAL (17.5/hand)</td><td class="cu">up from 30. Hinge, not squat.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Seated Leg Curl  ⊃  Standing Calf</td><td class="sr">3 x 10-12  /  3 x 10-12</td><td class="ld">39 kg  /  55 kg</td><td class="cu">SUPERSET. Calf up from 50 — 16 reps was still too easy.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Tibialis Raise</td><td class="sr">2 x 15-20</td><td class="ld">bodyweight or light</td><td class="cu">SHIN INSURANCE. You have an active shin niggle — do not skip this.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Hip Abduction (Machine)</td><td class="sr">2 x 15</td><td class="ld">moderate</td><td class="cu">glute med → knee tracking. Added because of your knee.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">45° Back Extension  ⊃  Seated Calf</td><td class="sr">2 x 15  /  2 x 15</td><td class="ld">BW  /  45 kg</td><td class="cu">SUPERSET</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Cable Crunch</td><td class="sr">3 x 12-15</td><td class="ld">80 kg</td><td class="cu">up from 75 — you hit 15,15,15</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Bulgarian Split Squat</td><td class="sr">3 x 8-10 / leg</td><td class="ld">bodyweight</td><td class="cu">CUT THIS FIRST if short on time</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Hanging Leg Raise  ⊃  Pallof Press</td><td class="sr">3 x 8-12  /  3 x 10 ea</td><td class="ld">BW  /  light</td><td class="cu">Pallof: side-on to cable, press out, resist the twist</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Side Bend (hyperext machine)</td><td class="sr">2 x 15 / side</td><td class="ld">12.5 kg — NEVER more</td><td class="cu">the one lift that never progresses</td></tr></tbody></table></div></section><section><div class="sh"><h2>S4 · Shoulders + Arms</h2><span class="cnt">5 core &middot; 1 aux</span></div><div class="tw"><table><thead><tr><th></th><th>Exercise</th><th>Sets &times; reps</th><th>Load</th><th>Note</th></tr></thead><tbody><tr class="core"><td class="pr">CORE</td><td class="ex">Seated Shoulder Press</td><td class="sr">4 x 8-10</td><td class="ld">43 kg</td><td class="cu">w-up 25x12, 36x8. Build to 10,10,9,9 then 45.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Cable Lateral Raise (1-arm)</td><td class="sr">4 x 12-15</td><td class="ld">5 kg + 3-SECOND LOWERING</td><td class="cu">machine jumps 5→10. Progress by tempo, not load.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Rear Delt Fly (Machine)</td><td class="sr">3 x 12-15</td><td class="ld">52 kg</td><td class="cu"></td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Hammer Curl  ⊃  Overhead Tri Ext</td><td class="sr">3 x 8-10  /  3 x 10-12</td><td class="ld">30 kg  /  22.5 kg</td><td class="cu">SUPERSET. Triceps up from 20 — trigger fired.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Incline DB Curl  ⊃  Rope Pushdown</td><td class="sr">3 x 10-12  /  3 x 12-15</td><td class="ld">20 kg  /  47.5 kg</td><td class="cu">SUPERSET — now 3 sets each</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Preacher Curl  ⊃  Single-Arm Pushdown</td><td class="sr">2 x 12-15  /  2 x 12-15</td><td class="ld">20 kg  /  15 kg</td><td class="cu">takes arms to 8 direct sets each</td></tr></tbody></table></div></section><section><div class="sh"><h2>S6 · Chest + Back</h2><span class="cnt">4 core &middot; 2 aux</span></div><div class="tw"><table><thead><tr><th></th><th>Exercise</th><th>Sets &times; reps</th><th>Load</th><th>Note</th></tr></thead><tbody><tr class="core"><td class="pr">CORE</td><td class="ex">Pull-Up</td><td class="sr">4 x 5-8</td><td class="ld">bodyweight</td><td class="cu">FIRST, fully fresh. +5 kg once you clear 8,8,8,8.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Incline DB Press</td><td class="sr">4 x 6-10</td><td class="ld">50 kg</td><td class="cu">w-up 2x20 x10. Build to 50 x 8,8,7,6.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Flat DB Press  ⊃  1-Arm Machine Row</td><td class="sr">3 x 8-12  /  3 x 8-10</td><td class="ld">2x22  /  45 kg</td><td class="cu">SUPERSET. Row up from 43.</td></tr><tr class="core"><td class="pr">CORE</td><td class="ex">Lat Pulldown</td><td class="sr">3 x 10-12</td><td class="ld">54 kg</td><td class="cu">up from 50 — you hit 12,12,12</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Cable Fly Crossovers</td><td class="sr">3 x 12-15</td><td class="ld">60 kg</td><td class="cu">the only fly variation</td></tr><tr class="aux"><td class="pr">aux</td><td class="ex">Seated Cable Row</td><td class="sr">3 x 10-12</td><td class="ld">50 kg</td><td class="cu">squeeze, don&#x27;t heave</td></tr></tbody></table></div></section>
+<div class="rules"><div class="rl"><h4>Progression</h4><p>Hit the TOP of the rep range on every set → add 2.5 kg next session and drop back to the bottom.</p></div><div class="rl"><h4>Coarse increments</h4><p>If the prescribed weight won&#x27;t let you hit the rep range, the rep range wins. On machines that jump 5 kg, progress by reps → then a 3-second lowering → then an extra set.</p></div><div class="rl"><h4>Short on time?</h4><p>Cut the AUX rows, in the order listed. Never cut a CORE row — tibialis and hip abduction are there because of your shin and knee.</p></div><div class="rl"><h4>Log RPE</h4><p>7–9 on compounds, 8–10 on isolation.</p></div></div>
+<footer>This page is the single source of truth for loads. If it disagrees with anything else, this wins.</footer>
+</div>
+</body>
+</html>
