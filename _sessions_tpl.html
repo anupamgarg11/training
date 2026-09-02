@@ -47,7 +47,18 @@
  td.ex{color:var(--ink);font-weight:600;font-family:var(--fd);min-width:190px}
  td.sr{font-family:var(--fm);white-space:nowrap;font-size:.78rem}
  td.ld{font-family:var(--fm);color:var(--ink);font-weight:600;white-space:nowrap;font-size:.8rem}
- td.cu{font-size:.78rem;color:var(--ink-3);min-width:180px}
+ td.cu{font-size:.76rem;color:var(--ink-3);min-width:170px}
+ td.la{font-family:var(--fm);font-size:.72rem;color:var(--ink-2);white-space:nowrap}
+ tr.new{background:color-mix(in srgb,var(--hard-bg) 55%,transparent)}
+ tr.new td.pr{color:var(--hard);font-weight:700}
+ tr.new td.ex{color:var(--hard)}
+ .status{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:26px}
+ .st{background:var(--surface);border:1px solid var(--rule);padding:18px 20px}
+ .st.good{border-left:3px solid var(--easy)} .st.bad{border-left:3px solid var(--hard)}
+ .st h3{margin:0 0 9px;font-size:.95rem;font-family:var(--fd)}
+ .st.good h3{color:var(--easy)} .st.bad h3{color:var(--hard)}
+ .st ul{margin:0;padding-left:17px;font-size:.84rem;color:var(--ink-2)}
+ .st li{margin-bottom:6px} .st li:last-child{margin-bottom:0}
  .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:26px}
  .rl{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--iron);padding:15px 17px}
  .rl h4{margin:0 0 5px;font-size:.86rem}
@@ -66,6 +77,10 @@
   <div class="rule-heavy"></div>
   <h1 style="margin-top:18px;">The three sessions</h1>
 </header>
+<div class="status">
+  <div class="st good"><h3>What's working</h3><ul><!--WORKING--></ul></div>
+  <div class="st bad"><h3>What needs fixing</h3><ul><!--FIXING--></ul></div>
+</div>
 <!--SECTIONS-->
 <div class="rules"><!--RULES--></div>
 <footer>This page is the single source of truth for loads. If it disagrees with anything else, this wins.</footer>
